@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>오늘의 영어회화 · Day 3</title>
+<style>
+  * { box-sizing:border-box; margin:0; padding:0; }
+  :root {
+    --bg:#eef2fb; --card:#fff; --ink:#1e2a3a; --sub:#5b6b80; --line:#dbe3f0;
+    --accent:#2e5fa3; --accent-soft:#e8f0fd; --b:#059669; --b-soft:#d1fae5;
+  }
+  @media (prefers-color-scheme:dark) {
+    :root { --bg:#0f141c; --card:#171e29; --ink:#e6ebf2; --sub:#9aa8bc; --line:#28323f;
+             --accent:#6f9bff; --accent-soft:#1c2a44; --b:#34d399; --b-soft:#123528; }
+  }
+  body { font-family:"Malgun Gothic","Apple SD Gothic Neo",system-ui,sans-serif;
+    background:var(--bg); color:var(--ink); line-height:1.6; padding-bottom:70px; }
+  .header { background:linear-gradient(135deg,#1a3a6c,#2e5fa3); color:#fff;
+    padding:26px 20px 20px; text-align:center; }
+  .kicker { font-size:12px; letter-spacing:2px; opacity:.8; text-transform:uppercase; }
+  .h-title { font-size:22px; font-weight:700; margin:8px 0 2px; }
+  .h-topic-en { font-size:13px; opacity:.85; }
+  .h-emoji { font-size:42px; margin:10px 0 6px; }
+  .h-meta { font-size:12px; opacity:.8; }
+  .h-src { display:inline-block; margin-top:8px; font-size:11px; background:rgba(255,255,255,.18);
+    border-radius:20px; padding:2px 10px; }
+  .wrap { max-width:720px; margin:0 auto; padding:18px 14px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:14px;
+    padding:18px; margin-bottom:14px; box-shadow:0 1px 8px rgba(0,0,0,.06); }
+  .c-title { font-size:13px; font-weight:700; color:var(--accent); text-transform:uppercase;
+    letter-spacing:1px; margin-bottom:12px; }
+  .situation { background:var(--accent-soft); border-left:4px solid var(--accent);
+    border-radius:0 8px 8px 0; padding:12px 14px; }
+  .situation .ko { font-weight:600; }
+  .situation .en { font-size:13px; color:var(--sub); font-style:italic; }
+  .vocab-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:10px; }
+  .vocab-card { background:var(--accent-soft); border:1px solid var(--line); border-radius:10px;
+    padding:11px 10px; text-align:center; }
+  .vocab-word { font-size:15px; font-weight:700; color:var(--accent); }
+  .vocab-pron { font-size:11px; color:var(--sub); margin:4px 0; }
+  .vocab-meaning { font-size:12.5px; font-weight:600; }
+  .dialogue { display:flex; flex-direction:column; gap:11px; }
+  .bubble-row { display:flex; gap:8px; align-items:flex-start; }
+  .bubble-row.right { flex-direction:row-reverse; }
+  .avatar { width:30px; height:30px; border-radius:50%; color:#fff; font-weight:700;
+    font-size:13px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .spk-a { background:var(--accent); } .spk-b { background:var(--b); }
+  .bubble-wrap { flex:1; }
+  .bubble-row.right .bubble-wrap { display:flex; justify-content:flex-end; }
+  .bubble { display:inline-block; max-width:100%; border-radius:12px; padding:9px 13px; }
+  .bubble.left { background:var(--accent-soft); border-top-left-radius:2px; }
+  .bubble.right { background:var(--b-soft); border-top-right-radius:2px; }
+  .bubble-en { font-size:14px; font-weight:600; }
+  .bubble-ko { font-size:12px; color:var(--sub); margin-top:3px; }
+  .expr { display:flex; gap:8px; flex-wrap:wrap; align-items:baseline; background:var(--accent-soft);
+    border-radius:8px; padding:9px 12px; margin-bottom:7px; }
+  .expr-en { font-weight:700; color:var(--accent); font-size:14px; }
+  .arr { color:var(--sub); } .expr-ko { font-size:13px; color:var(--sub); }
+  .tip { border-radius:10px; padding:12px 14px; margin-bottom:9px; font-size:13px; line-height:1.7; }
+  .tip.g { background:var(--b-soft); } .tip.p { background:#fff3e0; color:#7a4a12; }
+  @media (prefers-color-scheme:dark) { .tip.p { background:#3a2c15; color:#ffcf8f; } }
+  .tip b { display:block; font-size:11px; text-transform:uppercase; letter-spacing:1px; margin-bottom:4px; }
+  .practice { display:flex; justify-content:space-between; align-items:center; gap:8px;
+    background:var(--accent-soft); border-left:3px solid var(--accent); border-radius:8px;
+    padding:9px 12px; margin-bottom:7px; font-size:13px; font-weight:600; }
+  .say { border:0; background:transparent; cursor:pointer; font-size:13px; opacity:.55;
+    padding:2px 4px; }
+  .say:hover { opacity:1; }
+  .done-btn { display:block; width:100%; max-width:360px; margin:22px auto 0; border:0;
+    border-radius:12px; padding:15px; font-size:16px; font-weight:700; color:#fff; cursor:pointer;
+    background:linear-gradient(135deg,#1a3a6c,#2e5fa3); font-family:inherit; }
+  .done-btn.done { background:var(--b); cursor:default; }
+  .foot { text-align:center; font-size:11px; color:var(--sub); margin-top:22px; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="kicker">&#128218; 오늘의 영어회화</div>
+  <div class="h-title">매장에서 쇼핑하기</div>
+  <div class="h-topic-en">Shopping at a Store</div>
+  <div class="h-emoji">🛍️</div>
+  <div class="h-meta">2026년 09월 09일 (Wed) &nbsp;|&nbsp; Day 3</div>
+  <div class="h-src">네이버 블로그 + Gemini · 매장에서 쇼핑하기</div>
+</div>
+<div class="wrap">
+
+  <div class="card">
+    <div class="c-title">&#127919; 오늘의 상황</div>
+    <div class="situation">
+      <div class="ko">옷가게에서 마음에 드는 옷을 발견하고 사이즈를 물어보거나 구경만 하겠다고 말하는 상황</div>
+      <div class="en">Finding something you like at a clothing store, asking for a size, or letting the staff know you are just browsing.</div>
+    </div>
+    <p style="font-size:12px;color:var(--sub);margin-top:8px">해외 여행이나 쇼핑몰에서 점원과 가장 빈번하게 마주치는 실전 필수 회화 패턴입니다.</p>
+  </div>
+
+  <div class="card">
+    <div class="c-title">&#128218; 오늘의 단어 (5)</div>
+    <div class="vocab-grid">
+        <div class="vocab-card">
+          <div class="vocab-word">browse
+            <button class="say" data-say="browse" title="발음 듣기">&#128266;</button>
+          </div>
+          <div class="vocab-pron">[브라우즈]</div>
+          <div class="vocab-meaning">(가게 안을) 둘러보다</div>
+        </div>
+        <div class="vocab-card">
+          <div class="vocab-word">size
+            <button class="say" data-say="size" title="발음 듣기">&#128266;</button>
+          </div>
+          <div class="vocab-pron">[사이즈]</div>
+          <div class="vocab-meaning">치수, 사이즈</div>
+        </div>
+        <div class="vocab-card">
+          <div class="vocab-word">fitting room
+            <button class="say" data-say="fitting room" title="발음 듣기">&#128266;</button>
+          </div>
+          <div class="vocab-pron">[피팅 룸]</div>
+          <div class="vocab-meaning">탈의실</div>
+        </div>
+        <div class="vocab-card">
+          <div class="vocab-word">on sale
+            <button class="say" data-say="on sale" title="발음 듣기">&#128266;</button>
+          </div>
+          <div class="vocab-pron">[온 세일]</div>
+          <div class="vocab-meaning">할인 중인</div>
+        </div>
+        <div class="vocab-card">
+          <div class="vocab-word">outfit
+            <button class="say" data-say="outfit" title="발음 듣기">&#128266;</button>
+          </div>
+          <div class="vocab-pron">[아웃핏]</div>
+          <div class="vocab-meaning">옷 한 벌, 의상</div>
+        </div></div>
+  </div>
+
+  <div class="card">
+    <div class="c-title">&#128172; 오늘의 대화</div>
+    <div class="dialogue">
+        <div class="bubble-row right">
+          <div class="avatar spk-b">B</div>
+          <div class="bubble-wrap">
+            <div class="bubble right">
+              <div class="bubble-en">Hi there! Can I help you find anything?
+                <button class="say" data-say="Hi there! Can I help you find anything?" title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">안녕하세요! 찾으시는 것 좀 도와드릴까요?</div>
+            </div>
+          </div>
+        </div>
+        <div class="bubble-row left">
+          <div class="avatar spk-a">A</div>
+          <div class="bubble-wrap">
+            <div class="bubble left">
+              <div class="bubble-en">No thanks, I&#x27;m just browsing for now.
+                <button class="say" data-say="No thanks, I&#x27;m just browsing for now." title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">아니요, 그냥 좀 둘러보고 있어요.</div>
+            </div>
+          </div>
+        </div>
+        <div class="bubble-row left">
+          <div class="avatar spk-a">A</div>
+          <div class="bubble-wrap">
+            <div class="bubble left">
+              <div class="bubble-en">Oh, excuse me. Do you have this in a medium?
+                <button class="say" data-say="Oh, excuse me. Do you have this in a medium?" title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">저기요, 이거 미디엄 사이즈로 있나요?</div>
+            </div>
+          </div>
+        </div>
+        <div class="bubble-row right">
+          <div class="avatar spk-b">B</div>
+          <div class="bubble-wrap">
+            <div class="bubble right">
+              <div class="bubble-en">Let me check. Yes, we do. Would you like to try it on?
+                <button class="say" data-say="Let me check. Yes, we do. Would you like to try it on?" title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">확인해 볼게요. 네, 있어요. 입어보시겠어요?</div>
+            </div>
+          </div>
+        </div>
+        <div class="bubble-row left">
+          <div class="avatar spk-a">A</div>
+          <div class="bubble-wrap">
+            <div class="bubble left">
+              <div class="bubble-en">Yes, please. Where is the fitting room?
+                <button class="say" data-say="Yes, please. Where is the fitting room?" title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">네, 그럴게요. 탈의실이 어디죠?</div>
+            </div>
+          </div>
+        </div>
+        <div class="bubble-row right">
+          <div class="avatar spk-b">B</div>
+          <div class="bubble-wrap">
+            <div class="bubble right">
+              <div class="bubble-en">It&#x27;s right over there by the corner.
+                <button class="say" data-say="It&#x27;s right over there by the corner." title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">저기 코너 바로 옆에 있어요.</div>
+            </div>
+          </div>
+        </div>
+        <div class="bubble-row left">
+          <div class="avatar spk-a">A</div>
+          <div class="bubble-wrap">
+            <div class="bubble left">
+              <div class="bubble-en">Thanks! By the way, is this jacket on sale?
+                <button class="say" data-say="Thanks! By the way, is this jacket on sale?" title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">감사합니다! 그런데 이 재킷 할인 중인가요?</div>
+            </div>
+          </div>
+        </div>
+        <div class="bubble-row right">
+          <div class="avatar spk-b">B</div>
+          <div class="bubble-wrap">
+            <div class="bubble right">
+              <div class="bubble-en">Yes, it&#x27;s 20% off today.
+                <button class="say" data-say="Yes, it&#x27;s 20% off today." title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">네, 오늘 20% 할인 중이에요.</div>
+            </div>
+          </div>
+        </div></div>
+  </div>
+
+  <div class="card"><div class="c-title">&#11088; 핵심 표현</div><div class="expr"><span class="expr-en">"I&#x27;m just browsing."</span><span class="arr">&#8594;</span><span class="expr-ko">그냥 둘러보는 중이에요. (점원이 다가올 때 부담 없이 쓰는 표현)</span></div><div class="expr"><span class="expr-en">"Do you have this in a [size]?"</span><span class="arr">&#8594;</span><span class="expr-ko">이거 [사이즈]로 있어요?</span></div><div class="expr"><span class="expr-en">"Would you like to try it on?"</span><span class="arr">&#8594;</span><span class="expr-ko">입어보시겠어요?</span></div><div class="expr"><span class="expr-en">"Is this on sale?"</span><span class="arr">&#8594;</span><span class="expr-ko">이거 할인 중인가요?</span></div></div>
+
+  <div class="card">
+    <div class="c-title">&#128161; 학습 팁</div>
+    <div class="tip g"><b>&#128221; Grammar</b>Do you have this in a medium? 처럼 전치사 in을 쓰면 특정 사이즈나 색상을 지정할 때 자연스럽습니다.</div>
+    <div class="tip p"><b>&#128266; Pronunciation</b>&#x27;I&#x27;m just browsing&#x27;은 &#x27;아임 저스트 브라우징&#x27;보다 &#x27;아임저스브라우징&#x27;처럼 단어를 부드럽게 이어 연음으로 발음해 보세요.</div>
+  </div>
+
+  <div class="card"><div class="c-title">&#9999;&#65039; 따라 말하기</div><div class="practice"><span>&#128172; I&#x27;m just browsing, thanks.</span><button class="say" data-say="I&#x27;m just browsing, thanks." title="발음 듣기">&#128266;</button></div><div class="practice"><span>&#128172; Do you have this in a large?</span><button class="say" data-say="Do you have this in a large?" title="발음 듣기">&#128266;</button></div><div class="practice"><span>&#128172; Where is the fitting room?</span><button class="say" data-say="Where is the fitting room?" title="발음 듣기">&#128266;</button></div></div>
+
+  <button class="done-btn" id="doneBtn">&#9989; 오늘 학습 완료!</button>
+  <div class="foot">생성: 2026-09-09 10:26 · 콘텐츠 자동 생성이라 표현이 어색할 수 있어요.<br>
+  발음 버튼은 브라우저 음성합성(TTS)을 사용합니다.</div>
+</div>
+
+<script>
+  document.querySelectorAll('.say').forEach(function(b) {
+    b.addEventListener('click', function() {
+      try {
+        var u = new SpeechSynthesisUtterance(b.getAttribute('data-say'));
+        u.lang = 'en-US'; u.rate = 0.95;
+        speechSynthesis.cancel(); speechSynthesis.speak(u);
+      } catch (e) {}
+    });
+  });
+  var key = 'lesson_done_2026-09-09';
+  var btn = document.getElementById('doneBtn');
+  function mark() { btn.textContent = '\uD83C\uDF89 오늘 학습 완료! 내일 또 만나요!'; btn.classList.add('done'); }
+  try { if (localStorage.getItem(key)) mark(); } catch (e) {}
+  btn.addEventListener('click', function() {
+    try { localStorage.setItem(key, '1'); } catch (e) {}
+    mark();
+  });
+</script>
+</body>
+</html>
