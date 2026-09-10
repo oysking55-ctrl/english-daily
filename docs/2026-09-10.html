@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>오늘의 영어회화 · Day 4</title>
+<style>
+  * { box-sizing:border-box; margin:0; padding:0; }
+  :root {
+    --bg:#eef2fb; --card:#fff; --ink:#1e2a3a; --sub:#5b6b80; --line:#dbe3f0;
+    --accent:#2e5fa3; --accent-soft:#e8f0fd; --b:#059669; --b-soft:#d1fae5;
+  }
+  @media (prefers-color-scheme:dark) {
+    :root { --bg:#0f141c; --card:#171e29; --ink:#e6ebf2; --sub:#9aa8bc; --line:#28323f;
+             --accent:#6f9bff; --accent-soft:#1c2a44; --b:#34d399; --b-soft:#123528; }
+  }
+  body { font-family:"Malgun Gothic","Apple SD Gothic Neo",system-ui,sans-serif;
+    background:var(--bg); color:var(--ink); line-height:1.6; padding-bottom:70px; }
+  .header { background:linear-gradient(135deg,#1a3a6c,#2e5fa3); color:#fff;
+    padding:26px 20px 20px; text-align:center; }
+  .kicker { font-size:12px; letter-spacing:2px; opacity:.8; text-transform:uppercase; }
+  .h-title { font-size:22px; font-weight:700; margin:8px 0 2px; }
+  .h-topic-en { font-size:13px; opacity:.85; }
+  .h-emoji { font-size:42px; margin:10px 0 6px; }
+  .h-meta { font-size:12px; opacity:.8; }
+  .h-src { display:inline-block; margin-top:8px; font-size:11px; background:rgba(255,255,255,.18);
+    border-radius:20px; padding:2px 10px; }
+  .wrap { max-width:720px; margin:0 auto; padding:18px 14px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:14px;
+    padding:18px; margin-bottom:14px; box-shadow:0 1px 8px rgba(0,0,0,.06); }
+  .c-title { font-size:13px; font-weight:700; color:var(--accent); text-transform:uppercase;
+    letter-spacing:1px; margin-bottom:12px; }
+  .situation { background:var(--accent-soft); border-left:4px solid var(--accent);
+    border-radius:0 8px 8px 0; padding:12px 14px; }
+  .situation .ko { font-weight:600; }
+  .situation .en { font-size:13px; color:var(--sub); font-style:italic; }
+  .vocab-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:10px; }
+  .vocab-card { background:var(--accent-soft); border:1px solid var(--line); border-radius:10px;
+    padding:11px 10px; text-align:center; }
+  .vocab-word { font-size:15px; font-weight:700; color:var(--accent); }
+  .vocab-pron { font-size:11px; color:var(--sub); margin:4px 0; }
+  .vocab-meaning { font-size:12.5px; font-weight:600; }
+  .dialogue { display:flex; flex-direction:column; gap:11px; }
+  .bubble-row { display:flex; gap:8px; align-items:flex-start; }
+  .bubble-row.right { flex-direction:row-reverse; }
+  .avatar { width:30px; height:30px; border-radius:50%; color:#fff; font-weight:700;
+    font-size:13px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .spk-a { background:var(--accent); } .spk-b { background:var(--b); }
+  .bubble-wrap { flex:1; }
+  .bubble-row.right .bubble-wrap { display:flex; justify-content:flex-end; }
+  .bubble { display:inline-block; max-width:100%; border-radius:12px; padding:9px 13px; }
+  .bubble.left { background:var(--accent-soft); border-top-left-radius:2px; }
+  .bubble.right { background:var(--b-soft); border-top-right-radius:2px; }
+  .bubble-en { font-size:14px; font-weight:600; }
+  .bubble-ko { font-size:12px; color:var(--sub); margin-top:3px; }
+  .expr { display:flex; gap:8px; flex-wrap:wrap; align-items:baseline; background:var(--accent-soft);
+    border-radius:8px; padding:9px 12px; margin-bottom:7px; }
+  .expr-en { font-weight:700; color:var(--accent); font-size:14px; }
+  .arr { color:var(--sub); } .expr-ko { font-size:13px; color:var(--sub); }
+  .tip { border-radius:10px; padding:12px 14px; margin-bottom:9px; font-size:13px; line-height:1.7; }
+  .tip.g { background:var(--b-soft); } .tip.p { background:#fff3e0; color:#7a4a12; }
+  @media (prefers-color-scheme:dark) { .tip.p { background:#3a2c15; color:#ffcf8f; } }
+  .tip b { display:block; font-size:11px; text-transform:uppercase; letter-spacing:1px; margin-bottom:4px; }
+  .practice { display:flex; justify-content:space-between; align-items:center; gap:8px;
+    background:var(--accent-soft); border-left:3px solid var(--accent); border-radius:8px;
+    padding:9px 12px; margin-bottom:7px; font-size:13px; font-weight:600; }
+  .say { border:0; background:transparent; cursor:pointer; font-size:13px; opacity:.55;
+    padding:2px 4px; }
+  .say:hover { opacity:1; }
+  .done-btn { display:block; width:100%; max-width:360px; margin:22px auto 0; border:0;
+    border-radius:12px; padding:15px; font-size:16px; font-weight:700; color:#fff; cursor:pointer;
+    background:linear-gradient(135deg,#1a3a6c,#2e5fa3); font-family:inherit; }
+  .done-btn.done { background:var(--b); cursor:default; }
+  .foot { text-align:center; font-size:11px; color:var(--sub); margin-top:22px; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="kicker">&#128218; 오늘의 영어회화</div>
+  <div class="h-title">택시 타기</div>
+  <div class="h-topic-en">Taking a Taxi</div>
+  <div class="h-emoji">🚕</div>
+  <div class="h-meta">2026년 09월 10일 (Thu) &nbsp;|&nbsp; Day 4</div>
+  <div class="h-src">네이버 블로그 + Gemini · 택시 타기</div>
+</div>
+<div class="wrap">
+
+  <div class="card">
+    <div class="c-title">&#127919; 오늘의 상황</div>
+    <div class="situation">
+      <div class="ko">목적지를 말하고 길을 안내하며 택시를 탈 때</div>
+      <div class="en">Getting into a taxi, telling the driver your destination, and navigating.</div>
+    </div>
+    <p style="font-size:12px;color:var(--sub);margin-top:8px">외국에서 택시를 탈 때 목적지 설정부터 길 안내, 하차까지 막힘없이 소통할 수 있는 실전 회화 레벨입니다.</p>
+  </div>
+
+  <div class="card">
+    <div class="c-title">&#128218; 오늘의 단어 (5)</div>
+    <div class="vocab-grid">
+        <div class="vocab-card">
+          <div class="vocab-word">Destination
+            <button class="say" data-say="Destination" title="발음 듣기">&#128266;</button>
+          </div>
+          <div class="vocab-pron">[데스티네이션]</div>
+          <div class="vocab-meaning">목적지</div>
+        </div>
+        <div class="vocab-card">
+          <div class="vocab-word">Head to
+            <button class="say" data-say="Head to" title="발음 듣기">&#128266;</button>
+          </div>
+          <div class="vocab-pron">[헤드 투]</div>
+          <div class="vocab-meaning">~로 향하다</div>
+        </div>
+        <div class="vocab-card">
+          <div class="vocab-word">Make a left
+            <button class="say" data-say="Make a left" title="발음 듣기">&#128266;</button>
+          </div>
+          <div class="vocab-pron">[메이크 어 레프트]</div>
+          <div class="vocab-meaning">좌회전하다</div>
+        </div>
+        <div class="vocab-card">
+          <div class="vocab-word">Drop off
+            <button class="say" data-say="Drop off" title="발음 듣기">&#128266;</button>
+          </div>
+          <div class="vocab-pron">[드롭 오프]</div>
+          <div class="vocab-meaning">내려주다</div>
+        </div>
+        <div class="vocab-card">
+          <div class="vocab-word">Keep the change
+            <button class="say" data-say="Keep the change" title="발음 듣기">&#128266;</button>
+          </div>
+          <div class="vocab-pron">[킵 더 체인지]</div>
+          <div class="vocab-meaning">잔돈은 가지세요</div>
+        </div></div>
+  </div>
+
+  <div class="card">
+    <div class="c-title">&#128172; 오늘의 대화</div>
+    <div class="dialogue">
+        <div class="bubble-row left">
+          <div class="avatar spk-a">A</div>
+          <div class="bubble-wrap">
+            <div class="bubble left">
+              <div class="bubble-en">Hi, I&#x27;d like to go to Gangnam Station, please.
+                <button class="say" data-say="Hi, I&#x27;d like to go to Gangnam Station, please." title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">안녕하세요, 강남역으로 가주세요.</div>
+            </div>
+          </div>
+        </div>
+        <div class="bubble-row right">
+          <div class="avatar spk-b">B</div>
+          <div class="bubble-wrap">
+            <div class="bubble right">
+              <div class="bubble-en">Sure thing. Heading to Gangnam Station.
+                <button class="say" data-say="Sure thing. Heading to Gangnam Station." title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">알겠습니다. 강남역으로 갈게요.</div>
+            </div>
+          </div>
+        </div>
+        <div class="bubble-row left">
+          <div class="avatar spk-a">A</div>
+          <div class="bubble-wrap">
+            <div class="bubble left">
+              <div class="bubble-en">Could you please take the highway? It&#x27;s faster.
+                <button class="say" data-say="Could you please take the highway? It&#x27;s faster." title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">고속도로로 가주시겠어요? 그게 더 빨라요.</div>
+            </div>
+          </div>
+        </div>
+        <div class="bubble-row right">
+          <div class="avatar spk-b">B</div>
+          <div class="bubble-wrap">
+            <div class="bubble right">
+              <div class="bubble-en">You got it. Heavy traffic ahead, so taking the bypass.
+                <button class="say" data-say="You got it. Heavy traffic ahead, so taking the bypass." title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">알겠습니다. 앞에 차가 막혀서 우회도로로 갈게요.</div>
+            </div>
+          </div>
+        </div>
+        <div class="bubble-row left">
+          <div class="avatar spk-a">A</div>
+          <div class="bubble-wrap">
+            <div class="bubble left">
+              <div class="bubble-en">Please make a right at the next traffic light.
+                <button class="say" data-say="Please make a right at the next traffic light." title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">다음 신호등에서 우회전해 주세요.</div>
+            </div>
+          </div>
+        </div>
+        <div class="bubble-row right">
+          <div class="avatar spk-b">B</div>
+          <div class="bubble-wrap">
+            <div class="bubble right">
+              <div class="bubble-en">Got it. Right at the light.
+                <button class="say" data-say="Got it. Right at the light." title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">알겠습니다. 신호등에서 우회전이요.</div>
+            </div>
+          </div>
+        </div>
+        <div class="bubble-row left">
+          <div class="avatar spk-a">A</div>
+          <div class="bubble-wrap">
+            <div class="bubble left">
+              <div class="bubble-en">You can drop me off right here in front of the building.
+                <button class="say" data-say="You can drop me off right here in front of the building." title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">이 건물 바로 앞에서 내려주시면 돼요.</div>
+            </div>
+          </div>
+        </div>
+        <div class="bubble-row right">
+          <div class="avatar spk-b">B</div>
+          <div class="bubble-wrap">
+            <div class="bubble right">
+              <div class="bubble-en">Here we are. That will be twenty dollars. Thank you!
+                <button class="say" data-say="Here we are. That will be twenty dollars. Thank you!" title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">다 왔습니다. 20달러입니다. 감사합니다!</div>
+            </div>
+          </div>
+        </div></div>
+  </div>
+
+  <div class="card"><div class="c-title">&#11088; 핵심 표현</div><div class="expr"><span class="expr-en">"I&#x27;d like to go to [장소], please."</span><span class="arr">&#8594;</span><span class="expr-ko">[장소](으)로 가주세요.</span></div><div class="expr"><span class="expr-en">"Could you take the highway?"</span><span class="arr">&#8594;</span><span class="expr-ko">고속도로로 가주시겠어요?</span></div><div class="expr"><span class="expr-en">"Please make a [left/right] here."</span><span class="arr">&#8594;</span><span class="expr-ko">여기서 [좌/우]회전해 주세요.</span></div><div class="expr"><span class="expr-en">"You can drop me off right here."</span><span class="arr">&#8594;</span><span class="expr-ko">여기 바로 앞에 내려주세요.</span></div></div>
+
+  <div class="card">
+    <div class="c-title">&#128161; 학습 팁</div>
+    <div class="tip g"><b>&#128221; Grammar</b>원하고자 하는 목적지를 말할 때 단순한 동사 원형보다 &#x27;I&#x27;d like to go to ~&#x27;를 쓰면 훨씬 공손하고 자연스러운 표현이 됩니다.</div>
+    <div class="tip p"><b>&#128266; Pronunciation</b>&#x27;Could you&#x27;는 원어민들이 빠르게 발음할 때 &#x27;쿠주&#x27;처럼 연음되어 들리므로 이 점을 살려서 연습해 보세요.</div>
+  </div>
+
+  <div class="card"><div class="c-title">&#9999;&#65039; 따라 말하기</div><div class="practice"><span>&#128172; Hi, I&#x27;d like to go to Grand Central Station, please.</span><button class="say" data-say="Hi, I&#x27;d like to go to Grand Central Station, please." title="발음 듣기">&#128266;</button></div><div class="practice"><span>&#128172; Could you please take the highway?</span><button class="say" data-say="Could you please take the highway?" title="발음 듣기">&#128266;</button></div><div class="practice"><span>&#128172; You can drop me off right here.</span><button class="say" data-say="You can drop me off right here." title="발음 듣기">&#128266;</button></div></div>
+
+  <button class="done-btn" id="doneBtn">&#9989; 오늘 학습 완료!</button>
+  <div class="foot">생성: 2026-09-10 09:00 · 콘텐츠 자동 생성이라 표현이 어색할 수 있어요.<br>
+  발음 버튼은 브라우저 음성합성(TTS)을 사용합니다.</div>
+</div>
+
+<script>
+  document.querySelectorAll('.say').forEach(function(b) {
+    b.addEventListener('click', function() {
+      try {
+        var u = new SpeechSynthesisUtterance(b.getAttribute('data-say'));
+        u.lang = 'en-US'; u.rate = 0.95;
+        speechSynthesis.cancel(); speechSynthesis.speak(u);
+      } catch (e) {}
+    });
+  });
+  var key = 'lesson_done_2026-09-10';
+  var btn = document.getElementById('doneBtn');
+  function mark() { btn.textContent = '\uD83C\uDF89 오늘 학습 완료! 내일 또 만나요!'; btn.classList.add('done'); }
+  try { if (localStorage.getItem(key)) mark(); } catch (e) {}
+  btn.addEventListener('click', function() {
+    try { localStorage.setItem(key, '1'); } catch (e) {}
+    mark();
+  });
+</script>
+</body>
+</html>
