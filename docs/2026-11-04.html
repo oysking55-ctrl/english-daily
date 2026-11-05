@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>오늘의 영어회화 · Day 33</title>
+<style>
+  * { box-sizing:border-box; margin:0; padding:0; }
+  :root {
+    --bg:#eef2fb; --card:#fff; --ink:#1e2a3a; --sub:#5b6b80; --line:#dbe3f0;
+    --accent:#2e5fa3; --accent-soft:#e8f0fd; --b:#059669; --b-soft:#d1fae5;
+  }
+  @media (prefers-color-scheme:dark) {
+    :root { --bg:#0f141c; --card:#171e29; --ink:#e6ebf2; --sub:#9aa8bc; --line:#28323f;
+             --accent:#6f9bff; --accent-soft:#1c2a44; --b:#34d399; --b-soft:#123528; }
+  }
+  body { font-family:"Malgun Gothic","Apple SD Gothic Neo",system-ui,sans-serif;
+    background:var(--bg); color:var(--ink); line-height:1.6; padding-bottom:70px; }
+  .header { background:linear-gradient(135deg,#1a3a6c,#2e5fa3); color:#fff;
+    padding:26px 20px 20px; text-align:center; }
+  .kicker { font-size:12px; letter-spacing:2px; opacity:.8; text-transform:uppercase; }
+  .h-title { font-size:22px; font-weight:700; margin:8px 0 2px; }
+  .h-topic-en { font-size:13px; opacity:.85; }
+  .h-emoji { font-size:42px; margin:10px 0 6px; }
+  .h-meta { font-size:12px; opacity:.8; }
+  .h-src { display:inline-block; margin-top:8px; font-size:11px; background:rgba(255,255,255,.18);
+    border-radius:20px; padding:2px 10px; }
+  .wrap { max-width:720px; margin:0 auto; padding:18px 14px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:14px;
+    padding:18px; margin-bottom:14px; box-shadow:0 1px 8px rgba(0,0,0,.06); }
+  .c-title { font-size:13px; font-weight:700; color:var(--accent); text-transform:uppercase;
+    letter-spacing:1px; margin-bottom:12px; }
+  .situation { background:var(--accent-soft); border-left:4px solid var(--accent);
+    border-radius:0 8px 8px 0; padding:12px 14px; }
+  .situation .ko { font-weight:600; }
+  .situation .en { font-size:13px; color:var(--sub); font-style:italic; }
+  .vocab-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:10px; }
+  .vocab-card { background:var(--accent-soft); border:1px solid var(--line); border-radius:10px;
+    padding:11px 10px; text-align:center; }
+  .vocab-word { font-size:15px; font-weight:700; color:var(--accent); }
+  .vocab-pron { font-size:11px; color:var(--sub); margin:4px 0; }
+  .vocab-meaning { font-size:12.5px; font-weight:600; }
+  .dialogue { display:flex; flex-direction:column; gap:11px; }
+  .bubble-row { display:flex; gap:8px; align-items:flex-start; }
+  .bubble-row.right { flex-direction:row-reverse; }
+  .avatar { width:30px; height:30px; border-radius:50%; color:#fff; font-weight:700;
+    font-size:13px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .spk-a { background:var(--accent); } .spk-b { background:var(--b); }
+  .bubble-wrap { flex:1; }
+  .bubble-row.right .bubble-wrap { display:flex; justify-content:flex-end; }
+  .bubble { display:inline-block; max-width:100%; border-radius:12px; padding:9px 13px; }
+  .bubble.left { background:var(--accent-soft); border-top-left-radius:2px; }
+  .bubble.right { background:var(--b-soft); border-top-right-radius:2px; }
+  .bubble-en { font-size:14px; font-weight:600; }
+  .bubble-ko { font-size:12px; color:var(--sub); margin-top:3px; }
+  .expr { display:flex; gap:8px; flex-wrap:wrap; align-items:baseline; background:var(--accent-soft);
+    border-radius:8px; padding:9px 12px; margin-bottom:7px; }
+  .expr-en { font-weight:700; color:var(--accent); font-size:14px; }
+  .arr { color:var(--sub); } .expr-ko { font-size:13px; color:var(--sub); }
+  .tip { border-radius:10px; padding:12px 14px; margin-bottom:9px; font-size:13px; line-height:1.7; }
+  .tip.g { background:var(--b-soft); } .tip.p { background:#fff3e0; color:#7a4a12; }
+  @media (prefers-color-scheme:dark) { .tip.p { background:#3a2c15; color:#ffcf8f; } }
+  .tip b { display:block; font-size:11px; text-transform:uppercase; letter-spacing:1px; margin-bottom:4px; }
+  .practice { display:flex; justify-content:space-between; align-items:center; gap:8px;
+    background:var(--accent-soft); border-left:3px solid var(--accent); border-radius:8px;
+    padding:9px 12px; margin-bottom:7px; font-size:13px; font-weight:600; }
+  .say { border:0; background:transparent; cursor:pointer; font-size:13px; opacity:.55;
+    padding:2px 4px; }
+  .say:hover { opacity:1; }
+  .done-btn { display:block; width:100%; max-width:360px; margin:22px auto 0; border:0;
+    border-radius:12px; padding:15px; font-size:16px; font-weight:700; color:#fff; cursor:pointer;
+    background:linear-gradient(135deg,#1a3a6c,#2e5fa3); font-family:inherit; }
+  .done-btn.done { background:var(--b); cursor:default; }
+  .archive-link { display:block; text-align:center; margin-top:14px; font-size:13px;
+    font-weight:600; color:var(--accent); text-decoration:none; }
+  .archive-link:hover { text-decoration:underline; }
+  .foot { text-align:center; font-size:11px; color:var(--sub); margin-top:22px; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="kicker">&#128218; 오늘의 영어회화</div>
+  <div class="h-title">동의·부분 동의 표현</div>
+  <div class="h-topic-en">Agreeing and Partially Agreeing</div>
+  <div class="h-emoji">🤝</div>
+  <div class="h-meta">2026년 11월 04일 (Wed) &nbsp;|&nbsp; Day 33</div>
+  <div class="h-src">네이버 블로그 + Gemini · 동의·부분 동의 표현</div>
+</div>
+<div class="wrap">
+
+  <div class="card">
+    <div class="c-title">&#127919; 오늘의 상황</div>
+    <div class="situation">
+      <div class="ko">친구와 프로젝트 방향에 대해 이야기하며 전적으로 동의하고 부분적으로 수긍하는 상황</div>
+      <div class="en">Discussing project directions with a friend and showing full and partial agreement.</div>
+    </div>
+    <p style="font-size:12px;color:var(--sub);margin-top:8px">중급 학습자들을 위한 레슨으로, 단순한 &#x27;I agree&#x27;에서 벗어나 원어민처럼 정도의 차이를 두어 동의하는 법을 배웁니다.</p>
+  </div>
+
+  <div class="card">
+    <div class="c-title">&#128218; 오늘의 단어 (5)</div>
+    <div class="vocab-grid">
+        <div class="vocab-card">
+          <div class="vocab-word">Couldn&#x27;t agree more
+            <button class="say" data-say="Couldn&#x27;t agree more" title="발음 듣기">&#128266;</button>
+          </div>
+          <div class="vocab-pron">[쿠든트 어그리 모어]</div>
+          <div class="vocab-meaning">전적으로 동의해</div>
+        </div>
+        <div class="vocab-card">
+          <div class="vocab-word">To some extent
+            <button class="say" data-say="To some extent" title="발음 듣기">&#128266;</button>
+          </div>
+          <div class="vocab-pron">[투 썸 익스텐트]</div>
+          <div class="vocab-meaning">어느 정도는, 일정 부분</div>
+        </div>
+        <div class="vocab-card">
+          <div class="vocab-word">Make sense
+            <button class="say" data-say="Make sense" title="발음 듣기">&#128266;</button>
+          </div>
+          <div class="vocab-pron">[메이크 센스]</div>
+          <div class="vocab-meaning">일리가 있다, 말이 되다</div>
+        </div>
+        <div class="vocab-card">
+          <div class="vocab-word">See your point
+            <button class="say" data-say="See your point" title="발음 듣기">&#128266;</button>
+          </div>
+          <div class="vocab-pron">[씨 유어 포인트]</div>
+          <div class="vocab-meaning">무슨 말인지 알겠어</div>
+        </div>
+        <div class="vocab-card">
+          <div class="vocab-word">Spot on
+            <button class="say" data-say="Spot on" title="발음 듣기">&#128266;</button>
+          </div>
+          <div class="vocab-pron">[스팟 온]</div>
+          <div class="vocab-meaning">정말 정확해, 바로 그거야</div>
+        </div></div>
+  </div>
+
+  <div class="card">
+    <div class="c-title">&#128172; 오늘의 대화</div>
+    <div class="dialogue">
+        <div class="bubble-row left">
+          <div class="avatar spk-a">A</div>
+          <div class="bubble-wrap">
+            <div class="bubble left">
+              <div class="bubble-en">I think we should focus more on user feedback for this update.
+                <button class="say" data-say="I think we should focus more on user feedback for this update." title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">이번 업데이트는 사용자 피드백에 좀 더 집중해야 할 것 같아요.</div>
+            </div>
+          </div>
+        </div>
+        <div class="bubble-row right">
+          <div class="avatar spk-b">B</div>
+          <div class="bubble-wrap">
+            <div class="bubble right">
+              <div class="bubble-en">I couldn&#x27;t agree more. Users have been complaining about the UI for weeks.
+                <button class="say" data-say="I couldn&#x27;t agree more. Users have been complaining about the UI for weeks." title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">전적으로 동의해요. 사용자들이 몇 주 동안 UI에 대해 불평했거든요.</div>
+            </div>
+          </div>
+        </div>
+        <div class="bubble-row left">
+          <div class="avatar spk-a">A</div>
+          <div class="bubble-wrap">
+            <div class="bubble left">
+              <div class="bubble-en">Right? And if we fix that, retention rates will naturally go up.
+                <button class="say" data-say="Right? And if we fix that, retention rates will naturally go up." title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">그쵸? 그리고 그것만 고쳐도 유지율이 자연스럽게 올라갈 거예요.</div>
+            </div>
+          </div>
+        </div>
+        <div class="bubble-row right">
+          <div class="avatar spk-b">B</div>
+          <div class="bubble-wrap">
+            <div class="bubble right">
+              <div class="bubble-en">Well, to some extent. But we also need to consider our tight budget.
+                <button class="say" data-say="Well, to some extent. But we also need to consider our tight budget." title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">글쎄요, 어느 정도는요. 하지만 촉박한 예산도 고려해야 해요.</div>
+            </div>
+          </div>
+        </div>
+        <div class="bubble-row left">
+          <div class="avatar spk-a">A</div>
+          <div class="bubble-wrap">
+            <div class="bubble left">
+              <div class="bubble-en">That makes sense. We can&#x27;t afford a massive redesign right now.
+                <button class="say" data-say="That makes sense. We can&#x27;t afford a massive redesign right now." title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">일리가 있네요. 지금 당장 대규모 리디자인을 감당할 수는 없죠.</div>
+            </div>
+          </div>
+        </div>
+        <div class="bubble-row right">
+          <div class="avatar spk-b">B</div>
+          <div class="bubble-wrap">
+            <div class="bubble right">
+              <div class="bubble-en">Exactly. Your point about fixing small bugs first is spot on.
+                <button class="say" data-say="Exactly. Your point about fixing small bugs first is spot on." title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">맞아요. 작은 버그부터 고치자는 네 말은 정말 정확해요.</div>
+            </div>
+          </div>
+        </div>
+        <div class="bubble-row left">
+          <div class="avatar spk-a">A</div>
+          <div class="bubble-wrap">
+            <div class="bubble left">
+              <div class="bubble-en">I see your point. Let&#x27;s start with the quick wins first.
+                <button class="say" data-say="I see your point. Let&#x27;s start with the quick wins first." title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">무슨 말인지 알겠어요. 당장 해결할 수 있는 것부터 시작합시다.</div>
+            </div>
+          </div>
+        </div>
+        <div class="bubble-row right">
+          <div class="avatar spk-b">B</div>
+          <div class="bubble-wrap">
+            <div class="bubble right">
+              <div class="bubble-en">Sounds like a plan!
+                <button class="say" data-say="Sounds like a plan!" title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">좋은 계획이네요!</div>
+            </div>
+          </div>
+        </div></div>
+  </div>
+
+  <div class="card"><div class="c-title">&#11088; 핵심 표현</div><div class="expr"><span class="expr-en">"I couldn&#x27;t agree more."</span><span class="arr">&#8594;</span><span class="expr-ko">정말 전적으로 동의해.</span></div><div class="expr"><span class="expr-en">"To some extent, yes."</span><span class="arr">&#8594;</span><span class="expr-ko">어느 정도는 맞아 (부분 동의).</span></div><div class="expr"><span class="expr-en">"That makes sense."</span><span class="arr">&#8594;</span><span class="expr-ko">일리가 있네, 납득이 가.</span></div><div class="expr"><span class="expr-en">"I see your point."</span><span class="arr">&#8594;</span><span class="expr-ko">네 말슨(의견)도 무슨 뜻인지 알겠어.</span></div></div>
+
+  <div class="card">
+    <div class="c-title">&#128161; 학습 팁</div>
+    <div class="tip g"><b>&#128221; Grammar</b>부정형인 &#x27;Couldn&#x27;t&#x27;를 사용했지만 의미는 &#x27;가장 많이 동의한다&#x27;는 최상급의 의미를 가집니다. &#x27;I couldn&#x27;t agree more&#x27;는 원어민들이 &#x27;I totally agree&#x27; 대신 가장 흔하게 쓰는 표현입니다.</div>
+    <div class="tip p"><b>&#128266; Pronunciation</b>&#x27;Couldn&#x27;t agree&#x27;를 발음할 때 &#x27;쿠든트 어그리&#x27;라고 끊지 말고 &#x27;쿠든터그리&#x27;처럼 연음으로 부드럽게 이어 말하면 훨씬 자연스럽습니다.</div>
+  </div>
+
+  <div class="card"><div class="c-title">&#9999;&#65039; 따라 말하기</div><div class="practice"><span>&#128172; I couldn&#x27;t agree more with your idea.</span><button class="say" data-say="I couldn&#x27;t agree more with your idea." title="발음 듣기">&#128266;</button></div><div class="practice"><span>&#128172; I agree with you to some extent.</span><button class="say" data-say="I agree with you to some extent." title="발음 듣기">&#128266;</button></div><div class="practice"><span>&#128172; Your explanation makes total sense.</span><button class="say" data-say="Your explanation makes total sense." title="발음 듣기">&#128266;</button></div></div>
+
+  <button class="done-btn" id="doneBtn">&#9989; 오늘 학습 완료!</button>
+  <a class="archive-link" href="https://oysking55-ctrl.github.io/english-daily/list.html" target="_blank" rel="noopener">&#128218; 지난 레슨 전체 보기 &#8594;</a>
+  <div class="foot">생성: 2026-11-04 09:00 · 콘텐츠 자동 생성이라 표현이 어색할 수 있어요.<br>
+  발음 버튼은 브라우저 음성합성(TTS)을 사용합니다.</div>
+</div>
+
+<script>
+  document.querySelectorAll('.say').forEach(function(b) {
+    b.addEventListener('click', function() {
+      try {
+        var u = new SpeechSynthesisUtterance(b.getAttribute('data-say'));
+        u.lang = 'en-US'; u.rate = 0.95;
+        speechSynthesis.cancel(); speechSynthesis.speak(u);
+      } catch (e) {}
+    });
+  });
+  var key = 'lesson_done_2026-11-04';
+  var btn = document.getElementById('doneBtn');
+  function mark() { btn.textContent = '\uD83C\uDF89 오늘 학습 완료! 내일 또 만나요!'; btn.classList.add('done'); }
+  try { if (localStorage.getItem(key)) mark(); } catch (e) {}
+  btn.addEventListener('click', function() {
+    try { localStorage.setItem(key, '1'); } catch (e) {}
+    mark();
+  });
+</script>
+</body>
+</html>
