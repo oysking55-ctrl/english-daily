@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>오늘의 영어회화 · Day 20</title>
+<style>
+  * { box-sizing:border-box; margin:0; padding:0; }
+  :root {
+    --bg:#eef2fb; --card:#fff; --ink:#1e2a3a; --sub:#5b6b80; --line:#dbe3f0;
+    --accent:#2e5fa3; --accent-soft:#e8f0fd; --b:#059669; --b-soft:#d1fae5;
+  }
+  @media (prefers-color-scheme:dark) {
+    :root { --bg:#0f141c; --card:#171e29; --ink:#e6ebf2; --sub:#9aa8bc; --line:#28323f;
+             --accent:#6f9bff; --accent-soft:#1c2a44; --b:#34d399; --b-soft:#123528; }
+  }
+  body { font-family:"Malgun Gothic","Apple SD Gothic Neo",system-ui,sans-serif;
+    background:var(--bg); color:var(--ink); line-height:1.6; padding-bottom:70px; }
+  .header { background:linear-gradient(135deg,#1a3a6c,#2e5fa3); color:#fff;
+    padding:26px 20px 20px; text-align:center; }
+  .kicker { font-size:12px; letter-spacing:2px; opacity:.8; text-transform:uppercase; }
+  .h-title { font-size:22px; font-weight:700; margin:8px 0 2px; }
+  .h-topic-en { font-size:13px; opacity:.85; }
+  .h-emoji { font-size:42px; margin:10px 0 6px; }
+  .h-meta { font-size:12px; opacity:.8; }
+  .h-src { display:inline-block; margin-top:8px; font-size:11px; background:rgba(255,255,255,.18);
+    border-radius:20px; padding:2px 10px; }
+  .wrap { max-width:720px; margin:0 auto; padding:18px 14px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:14px;
+    padding:18px; margin-bottom:14px; box-shadow:0 1px 8px rgba(0,0,0,.06); }
+  .c-title { font-size:13px; font-weight:700; color:var(--accent); text-transform:uppercase;
+    letter-spacing:1px; margin-bottom:12px; }
+  .situation { background:var(--accent-soft); border-left:4px solid var(--accent);
+    border-radius:0 8px 8px 0; padding:12px 14px; }
+  .situation .ko { font-weight:600; }
+  .situation .en { font-size:13px; color:var(--sub); font-style:italic; }
+  .vocab-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:10px; }
+  .vocab-card { background:var(--accent-soft); border:1px solid var(--line); border-radius:10px;
+    padding:11px 10px; text-align:center; }
+  .vocab-word { font-size:15px; font-weight:700; color:var(--accent); }
+  .vocab-pron { font-size:11px; color:var(--sub); margin:4px 0; }
+  .vocab-meaning { font-size:12.5px; font-weight:600; }
+  .dialogue { display:flex; flex-direction:column; gap:11px; }
+  .bubble-row { display:flex; gap:8px; align-items:flex-start; }
+  .bubble-row.right { flex-direction:row-reverse; }
+  .avatar { width:30px; height:30px; border-radius:50%; color:#fff; font-weight:700;
+    font-size:13px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .spk-a { background:var(--accent); } .spk-b { background:var(--b); }
+  .bubble-wrap { flex:1; }
+  .bubble-row.right .bubble-wrap { display:flex; justify-content:flex-end; }
+  .bubble { display:inline-block; max-width:100%; border-radius:12px; padding:9px 13px; }
+  .bubble.left { background:var(--accent-soft); border-top-left-radius:2px; }
+  .bubble.right { background:var(--b-soft); border-top-right-radius:2px; }
+  .bubble-en { font-size:14px; font-weight:600; }
+  .bubble-ko { font-size:12px; color:var(--sub); margin-top:3px; }
+  .expr { display:flex; gap:8px; flex-wrap:wrap; align-items:baseline; background:var(--accent-soft);
+    border-radius:8px; padding:9px 12px; margin-bottom:7px; }
+  .expr-en { font-weight:700; color:var(--accent); font-size:14px; }
+  .arr { color:var(--sub); } .expr-ko { font-size:13px; color:var(--sub); }
+  .tip { border-radius:10px; padding:12px 14px; margin-bottom:9px; font-size:13px; line-height:1.7; }
+  .tip.g { background:var(--b-soft); } .tip.p { background:#fff3e0; color:#7a4a12; }
+  @media (prefers-color-scheme:dark) { .tip.p { background:#3a2c15; color:#ffcf8f; } }
+  .tip b { display:block; font-size:11px; text-transform:uppercase; letter-spacing:1px; margin-bottom:4px; }
+  .practice { display:flex; justify-content:space-between; align-items:center; gap:8px;
+    background:var(--accent-soft); border-left:3px solid var(--accent); border-radius:8px;
+    padding:9px 12px; margin-bottom:7px; font-size:13px; font-weight:600; }
+  .say { border:0; background:transparent; cursor:pointer; font-size:13px; opacity:.55;
+    padding:2px 4px; }
+  .say:hover { opacity:1; }
+  .done-btn { display:block; width:100%; max-width:360px; margin:22px auto 0; border:0;
+    border-radius:12px; padding:15px; font-size:16px; font-weight:700; color:#fff; cursor:pointer;
+    background:linear-gradient(135deg,#1a3a6c,#2e5fa3); font-family:inherit; }
+  .done-btn.done { background:var(--b); cursor:default; }
+  .archive-link { display:block; text-align:center; margin-top:14px; font-size:13px;
+    font-weight:600; color:var(--accent); text-decoration:none; }
+  .archive-link:hover { text-decoration:underline; }
+  .foot { text-align:center; font-size:11px; color:var(--sub); margin-top:22px; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="kicker">&#128218; 오늘의 영어회화</div>
+  <div class="h-title">네트워킹·명함 교환</div>
+  <div class="h-topic-en">Networking &amp; Exchanging Business Cards</div>
+  <div class="h-emoji">🤝</div>
+  <div class="h-meta">2026년 10월 13일 (Tue) &nbsp;|&nbsp; Day 20</div>
+  <div class="h-src">네이버 블로그 + Gemini · 네트워킹·명함 교환</div>
+</div>
+<div class="wrap">
+
+  <div class="card">
+    <div class="c-title">&#127919; 오늘의 상황</div>
+    <div class="situation">
+      <div class="ko">컨퍼런스나 네트워킹 이벤트에서 처음 만난 사람과 자연스럽게 인사를 나누고 명함을 교환하는 상황</div>
+      <div class="en">Naturally greeting someone and exchanging business cards at a conference or networking event</div>
+    </div>
+    <p style="font-size:12px;color:var(--sub);margin-top:8px">비즈니스 미팅이나 네트워킹 행사의 스탠딩 파티에서 어색하지 않게 다가가 첫인사를 나누고 명함을 교환하는 필수 실전 회화 레벨입니다.</p>
+  </div>
+
+  <div class="card">
+    <div class="c-title">&#128218; 오늘의 단어 (5)</div>
+    <div class="vocab-grid">
+        <div class="vocab-card">
+          <div class="vocab-word">business card
+            <button class="say" data-say="business card" title="발음 듣기">&#128266;</button>
+          </div>
+          <div class="vocab-pron">[비즈니스 카드]</div>
+          <div class="vocab-meaning">명함</div>
+        </div>
+        <div class="vocab-card">
+          <div class="vocab-word">catch up
+            <button class="say" data-say="catch up" title="발음 듣기">&#128266;</button>
+          </div>
+          <div class="vocab-pron">[캐치 업]</div>
+          <div class="vocab-meaning">나중에 안부를 묻다, 이야기를 나누다</div>
+        </div>
+        <div class="vocab-card">
+          <div class="vocab-word">industry
+            <button class="say" data-say="industry" title="발음 듣기">&#128266;</button>
+          </div>
+          <div class="vocab-pron">[인데스트리]</div>
+          <div class="vocab-meaning">업계</div>
+        </div>
+        <div class="vocab-card">
+          <div class="vocab-word">keep in touch
+            <button class="say" data-say="keep in touch" title="발음 듣기">&#128266;</button>
+          </div>
+          <div class="vocab-pron">[킵 인 터치]</div>
+          <div class="vocab-meaning">계속 연락하고 지내다</div>
+        </div>
+        <div class="vocab-card">
+          <div class="vocab-word">connection
+            <button class="say" data-say="connection" title="발음 듣기">&#128266;</button>
+          </div>
+          <div class="vocab-pron">[커넥션]</div>
+          <div class="vocab-meaning">인맥, 연줄</div>
+        </div></div>
+  </div>
+
+  <div class="card">
+    <div class="c-title">&#128172; 오늘의 대화</div>
+    <div class="dialogue">
+        <div class="bubble-row left">
+          <div class="avatar spk-a">A</div>
+          <div class="bubble-wrap">
+            <div class="bubble left">
+              <div class="bubble-en">Hi, I don&#x27;t think we&#x27;ve met. I&#x27;m Alex from the marketing team.
+                <button class="say" data-say="Hi, I don&#x27;t think we&#x27;ve met. I&#x27;m Alex from the marketing team." title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">안녕하세요, 우리 안면이 아직 없죠? 저는 마케팅팀의 알렉스입니다.</div>
+            </div>
+          </div>
+        </div>
+        <div class="bubble-row right">
+          <div class="avatar spk-b">B</div>
+          <div class="bubble-wrap">
+            <div class="bubble right">
+              <div class="bubble-en">Nice to meet you, Alex. I&#x27;m Chloe. I work in product design.
+                <button class="say" data-say="Nice to meet you, Alex. I&#x27;m Chloe. I work in product design." title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">반가워요 알렉스. 저는 클로이예요. 제품 디자인 부서에서 일해요.</div>
+            </div>
+          </div>
+        </div>
+        <div class="bubble-row left">
+          <div class="avatar spk-a">A</div>
+          <div class="bubble-wrap">
+            <div class="bubble left">
+              <div class="bubble-en">Ah, product design! How are you enjoying this conference so far?
+                <button class="say" data-say="Ah, product design! How are you enjoying this conference so far?" title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">아, 제품 디자인이요! 이번 컨퍼런스 지금까지 어떠세요?</div>
+            </div>
+          </div>
+        </div>
+        <div class="bubble-row right">
+          <div class="avatar spk-b">B</div>
+          <div class="bubble-wrap">
+            <div class="bubble right">
+              <div class="bubble-en">It&#x27;s been really insightful. Lots of great speakers. What about you?
+                <button class="say" data-say="It&#x27;s been really insightful. Lots of great speakers. What about you?" title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">정말 유익해요. 좋은 연사분들도 많고요. 알렉스는 어떠세요?</div>
+            </div>
+          </div>
+        </div>
+        <div class="bubble-row left">
+          <div class="avatar spk-a">A</div>
+          <div class="bubble-wrap">
+            <div class="bubble left">
+              <div class="bubble-en">Same here. By the way, do you happen to have a business card?
+                <button class="say" data-say="Same here. By the way, do you happen to have a business card?" title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">저도 그래요. 그런데 혹시 명함 있으신가요?</div>
+            </div>
+          </div>
+        </div>
+        <div class="bubble-row right">
+          <div class="avatar spk-b">B</div>
+          <div class="bubble-wrap">
+            <div class="bubble right">
+              <div class="bubble-en">Sure, here is my card. Let me grab yours too.
+                <button class="say" data-say="Sure, here is my card. Let me grab yours too." title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">물론이죠, 여기 제 명함입니다. 저도 알렉스 것 좀 받을게요.</div>
+            </div>
+          </div>
+        </div>
+        <div class="bubble-row left">
+          <div class="avatar spk-a">A</div>
+          <div class="bubble-wrap">
+            <div class="bubble left">
+              <div class="bubble-en">Thanks. I&#x27;ll shoot you an email next week so we can grab a coffee.
+                <button class="say" data-say="Thanks. I&#x27;ll shoot you an email next week so we can grab a coffee." title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">감사해요. 다음 주에 이메일 한 통 드릴게요, 우리 커피 한잔해요.</div>
+            </div>
+          </div>
+        </div>
+        <div class="bubble-row right">
+          <div class="avatar spk-b">B</div>
+          <div class="bubble-wrap">
+            <div class="bubble right">
+              <div class="bubble-en">Sounds great. Let&#x27;s definitely keep in touch!
+                <button class="say" data-say="Sounds great. Let&#x27;s definitely keep in touch!" title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">좋네요. 꼭 계속 연락하고 지내요!</div>
+            </div>
+          </div>
+        </div></div>
+  </div>
+
+  <div class="card"><div class="c-title">&#11088; 핵심 표현</div><div class="expr"><span class="expr-en">"I don&#x27;t think we&#x27;ve met."</span><span class="arr">&#8594;</span><span class="expr-ko">우리 아직 안면이 없는 것 같아요. (처음 보는 사람에게 말 걸 때)</span></div><div class="expr"><span class="expr-en">"Do you happen to have a business card?"</span><span class="arr">&#8594;</span><span class="expr-ko">혹시 명함 있으신가요?</span></div><div class="expr"><span class="expr-en">"I&#x27;ll shoot you an email."</span><span class="arr">&#8594;</span><span class="expr-ko">이메일 보낼게요. (일상적인 표현)</span></div><div class="expr"><span class="expr-en">"Let&#x27;s definitely keep in touch."</span><span class="arr">&#8594;</span><span class="expr-ko">꼭 연락하고 지내요.</span></div></div>
+
+  <div class="card">
+    <div class="c-title">&#128161; 학습 팁</div>
+    <div class="tip g"><b>&#128221; Grammar</b>do you happen to ~를 사용하면 &#x27;혹시 ~하시나요?&#x27;라는 뜻으로 상대방에게 조금 더 부드럽고 조심스럽게 질문할 수 있습니다.</div>
+    <div class="tip p"><b>&#128266; Pronunciation</b>&#x27;shoot you&#x27;를 말할 때 &#x27;슈트 유&#x27;보다는 &#x27;슈츄&#x27;처럼 연음해서 발음하면 훨씬 자연스러운 원어민 발음이 됩니다.</div>
+  </div>
+
+  <div class="card"><div class="c-title">&#9999;&#65039; 따라 말하기</div><div class="practice"><span>&#128172; Hi, I don&#x27;t think we&#x27;ve met.</span><button class="say" data-say="Hi, I don&#x27;t think we&#x27;ve met." title="발음 듣기">&#128266;</button></div><div class="practice"><span>&#128172; Do you happen to have a business card?</span><button class="say" data-say="Do you happen to have a business card?" title="발음 듣기">&#128266;</button></div><div class="practice"><span>&#128172; Let&#x27;s definitely keep in touch.</span><button class="say" data-say="Let&#x27;s definitely keep in touch." title="발음 듣기">&#128266;</button></div></div>
+
+  <button class="done-btn" id="doneBtn">&#9989; 오늘 학습 완료!</button>
+  <a class="archive-link" href="https://oysking55-ctrl.github.io/english-daily/list.html" target="_blank" rel="noopener">&#128218; 지난 레슨 전체 보기 &#8594;</a>
+  <div class="foot">생성: 2026-10-13 09:00 · 콘텐츠 자동 생성이라 표현이 어색할 수 있어요.<br>
+  발음 버튼은 브라우저 음성합성(TTS)을 사용합니다.</div>
+</div>
+
+<script>
+  document.querySelectorAll('.say').forEach(function(b) {
+    b.addEventListener('click', function() {
+      try {
+        var u = new SpeechSynthesisUtterance(b.getAttribute('data-say'));
+        u.lang = 'en-US'; u.rate = 0.95;
+        speechSynthesis.cancel(); speechSynthesis.speak(u);
+      } catch (e) {}
+    });
+  });
+  var key = 'lesson_done_2026-10-13';
+  var btn = document.getElementById('doneBtn');
+  function mark() { btn.textContent = '\uD83C\uDF89 오늘 학습 완료! 내일 또 만나요!'; btn.classList.add('done'); }
+  try { if (localStorage.getItem(key)) mark(); } catch (e) {}
+  btn.addEventListener('click', function() {
+    try { localStorage.setItem(key, '1'); } catch (e) {}
+    mark();
+  });
+</script>
+</body>
+</html>
