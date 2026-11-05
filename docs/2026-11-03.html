@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>오늘의 영어회화 · Day 32</title>
+<style>
+  * { box-sizing:border-box; margin:0; padding:0; }
+  :root {
+    --bg:#eef2fb; --card:#fff; --ink:#1e2a3a; --sub:#5b6b80; --line:#dbe3f0;
+    --accent:#2e5fa3; --accent-soft:#e8f0fd; --b:#059669; --b-soft:#d1fae5;
+  }
+  @media (prefers-color-scheme:dark) {
+    :root { --bg:#0f141c; --card:#171e29; --ink:#e6ebf2; --sub:#9aa8bc; --line:#28323f;
+             --accent:#6f9bff; --accent-soft:#1c2a44; --b:#34d399; --b-soft:#123528; }
+  }
+  body { font-family:"Malgun Gothic","Apple SD Gothic Neo",system-ui,sans-serif;
+    background:var(--bg); color:var(--ink); line-height:1.6; padding-bottom:70px; }
+  .header { background:linear-gradient(135deg,#1a3a6c,#2e5fa3); color:#fff;
+    padding:26px 20px 20px; text-align:center; }
+  .kicker { font-size:12px; letter-spacing:2px; opacity:.8; text-transform:uppercase; }
+  .h-title { font-size:22px; font-weight:700; margin:8px 0 2px; }
+  .h-topic-en { font-size:13px; opacity:.85; }
+  .h-emoji { font-size:42px; margin:10px 0 6px; }
+  .h-meta { font-size:12px; opacity:.8; }
+  .h-src { display:inline-block; margin-top:8px; font-size:11px; background:rgba(255,255,255,.18);
+    border-radius:20px; padding:2px 10px; }
+  .wrap { max-width:720px; margin:0 auto; padding:18px 14px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:14px;
+    padding:18px; margin-bottom:14px; box-shadow:0 1px 8px rgba(0,0,0,.06); }
+  .c-title { font-size:13px; font-weight:700; color:var(--accent); text-transform:uppercase;
+    letter-spacing:1px; margin-bottom:12px; }
+  .situation { background:var(--accent-soft); border-left:4px solid var(--accent);
+    border-radius:0 8px 8px 0; padding:12px 14px; }
+  .situation .ko { font-weight:600; }
+  .situation .en { font-size:13px; color:var(--sub); font-style:italic; }
+  .vocab-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:10px; }
+  .vocab-card { background:var(--accent-soft); border:1px solid var(--line); border-radius:10px;
+    padding:11px 10px; text-align:center; }
+  .vocab-word { font-size:15px; font-weight:700; color:var(--accent); }
+  .vocab-pron { font-size:11px; color:var(--sub); margin:4px 0; }
+  .vocab-meaning { font-size:12.5px; font-weight:600; }
+  .dialogue { display:flex; flex-direction:column; gap:11px; }
+  .bubble-row { display:flex; gap:8px; align-items:flex-start; }
+  .bubble-row.right { flex-direction:row-reverse; }
+  .avatar { width:30px; height:30px; border-radius:50%; color:#fff; font-weight:700;
+    font-size:13px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .spk-a { background:var(--accent); } .spk-b { background:var(--b); }
+  .bubble-wrap { flex:1; }
+  .bubble-row.right .bubble-wrap { display:flex; justify-content:flex-end; }
+  .bubble { display:inline-block; max-width:100%; border-radius:12px; padding:9px 13px; }
+  .bubble.left { background:var(--accent-soft); border-top-left-radius:2px; }
+  .bubble.right { background:var(--b-soft); border-top-right-radius:2px; }
+  .bubble-en { font-size:14px; font-weight:600; }
+  .bubble-ko { font-size:12px; color:var(--sub); margin-top:3px; }
+  .expr { display:flex; gap:8px; flex-wrap:wrap; align-items:baseline; background:var(--accent-soft);
+    border-radius:8px; padding:9px 12px; margin-bottom:7px; }
+  .expr-en { font-weight:700; color:var(--accent); font-size:14px; }
+  .arr { color:var(--sub); } .expr-ko { font-size:13px; color:var(--sub); }
+  .tip { border-radius:10px; padding:12px 14px; margin-bottom:9px; font-size:13px; line-height:1.7; }
+  .tip.g { background:var(--b-soft); } .tip.p { background:#fff3e0; color:#7a4a12; }
+  @media (prefers-color-scheme:dark) { .tip.p { background:#3a2c15; color:#ffcf8f; } }
+  .tip b { display:block; font-size:11px; text-transform:uppercase; letter-spacing:1px; margin-bottom:4px; }
+  .practice { display:flex; justify-content:space-between; align-items:center; gap:8px;
+    background:var(--accent-soft); border-left:3px solid var(--accent); border-radius:8px;
+    padding:9px 12px; margin-bottom:7px; font-size:13px; font-weight:600; }
+  .say { border:0; background:transparent; cursor:pointer; font-size:13px; opacity:.55;
+    padding:2px 4px; }
+  .say:hover { opacity:1; }
+  .done-btn { display:block; width:100%; max-width:360px; margin:22px auto 0; border:0;
+    border-radius:12px; padding:15px; font-size:16px; font-weight:700; color:#fff; cursor:pointer;
+    background:linear-gradient(135deg,#1a3a6c,#2e5fa3); font-family:inherit; }
+  .done-btn.done { background:var(--b); cursor:default; }
+  .archive-link { display:block; text-align:center; margin-top:14px; font-size:13px;
+    font-weight:600; color:var(--accent); text-decoration:none; }
+  .archive-link:hover { text-decoration:underline; }
+  .foot { text-align:center; font-size:11px; color:var(--sub); margin-top:22px; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="kicker">&#128218; 오늘의 영어회화</div>
+  <div class="h-title">배송 문의 및 문제</div>
+  <div class="h-topic-en">Delivery Issues and Inquiries</div>
+  <div class="h-emoji">📦</div>
+  <div class="h-meta">2026년 11월 03일 (Tue) &nbsp;|&nbsp; Day 32</div>
+  <div class="h-src">네이버 블로그 + Gemini · 배송 문의·문제</div>
+</div>
+<div class="wrap">
+
+  <div class="card">
+    <div class="c-title">&#127919; 오늘의 상황</div>
+    <div class="situation">
+      <div class="ko">주문한 택배가 아직 오지 않거나 배송 상태를 확인하고 싶을 때 고객센터에 전화해서 문의하는 상황</div>
+      <div class="en">Calling customer service to check on a delayed or missing package.</div>
+    </div>
+    <p style="font-size:12px;color:var(--sub);margin-top:8px">이 표현들은 온라인 쇼핑몰이나 해외 직구 고객센터와 통화할 때 가장 빈번하게 쓰는 생생한 실무 회화 표현입니다.</p>
+  </div>
+
+  <div class="card">
+    <div class="c-title">&#128218; 오늘의 단어 (5)</div>
+    <div class="vocab-grid">
+        <div class="vocab-card">
+          <div class="vocab-word">shipped
+            <button class="say" data-say="shipped" title="발음 듣기">&#128266;</button>
+          </div>
+          <div class="vocab-pron">[십프트]</div>
+          <div class="vocab-meaning">배송이 시작된, 발송된</div>
+        </div>
+        <div class="vocab-card">
+          <div class="vocab-word">deliver
+            <button class="say" data-say="deliver" title="발음 듣기">&#128266;</button>
+          </div>
+          <div class="vocab-pron">[딜리버]</div>
+          <div class="vocab-meaning">배달하다</div>
+        </div>
+        <div class="vocab-card">
+          <div class="vocab-word">tracking number
+            <button class="say" data-say="tracking number" title="발음 듣기">&#128266;</button>
+          </div>
+          <div class="vocab-pron">[트래킹 넘버]</div>
+          <div class="vocab-meaning">운송장 번호, 추적 번호</div>
+        </div>
+        <div class="vocab-card">
+          <div class="vocab-word">delay
+            <button class="say" data-say="delay" title="발음 듣기">&#128266;</button>
+          </div>
+          <div class="vocab-pron">[딜레이]</div>
+          <div class="vocab-meaning">지연, 지연시키다</div>
+        </div>
+        <div class="vocab-card">
+          <div class="vocab-word">lmk (Let me know)
+            <button class="say" data-say="lmk (Let me know)" title="발음 듣기">&#128266;</button>
+          </div>
+          <div class="vocab-pron">[렛 미 노우]</div>
+          <div class="vocab-meaning">알려줘</div>
+        </div></div>
+  </div>
+
+  <div class="card">
+    <div class="c-title">&#128172; 오늘의 대화</div>
+    <div class="dialogue">
+        <div class="bubble-row left">
+          <div class="avatar spk-a">A</div>
+          <div class="bubble-wrap">
+            <div class="bubble left">
+              <div class="bubble-en">Hi, I&#x27;m calling about my order. It hasn&#x27;t arrived yet.
+                <button class="say" data-say="Hi, I&#x27;m calling about my order. It hasn&#x27;t arrived yet." title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">안녕하세요, 주문 건 때문에 전화드렸어요. 아직 도착을 안 해서요.</div>
+            </div>
+          </div>
+        </div>
+        <div class="bubble-row right">
+          <div class="avatar spk-b">B</div>
+          <div class="bubble-wrap">
+            <div class="bubble right">
+              <div class="bubble-en">Sure, I can check that for you. Do you have your order number?
+                <button class="say" data-say="Sure, I can check that for you. Do you have your order number?" title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">네, 확인해 드릴게요. 주문 번호 가지고 계신가요?</div>
+            </div>
+          </div>
+        </div>
+        <div class="bubble-row left">
+          <div class="avatar spk-a">A</div>
+          <div class="bubble-wrap">
+            <div class="bubble left">
+              <div class="bubble-en">Yes, it&#x27;s 12345. Has my order shipped yet?
+                <button class="say" data-say="Yes, it&#x27;s 12345. Has my order shipped yet?" title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">네, 12345번이에요. 제 주문 건 벌써 발송됐나요?</div>
+            </div>
+          </div>
+        </div>
+        <div class="bubble-row right">
+          <div class="avatar spk-b">B</div>
+          <div class="bubble-wrap">
+            <div class="bubble right">
+              <div class="bubble-en">Let me see... Yes, it shipped out two days ago.
+                <button class="say" data-say="Let me see... Yes, it shipped out two days ago." title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">어디 봅시다... 네, 이틀 전에 발송되었네요.</div>
+            </div>
+          </div>
+        </div>
+        <div class="bubble-row left">
+          <div class="avatar spk-a">A</div>
+          <div class="bubble-wrap">
+            <div class="bubble left">
+              <div class="bubble-en">Oh, really? Then when is it supposed to arrive?
+                <button class="say" data-say="Oh, really? Then when is it supposed to arrive?" title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">아, 그래요? 그럼 언제 도착할 예정인가요?</div>
+            </div>
+          </div>
+        </div>
+        <div class="bubble-row right">
+          <div class="avatar spk-b">B</div>
+          <div class="bubble-wrap">
+            <div class="bubble right">
+              <div class="bubble-en">It looks like there&#x27;s a slight delay. It should arrive by tomorrow.
+                <button class="say" data-say="It looks like there&#x27;s a slight delay. It should arrive by tomorrow." title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">배송이 약간 지연된 것 같아요. 내일까지는 도착할 거예요.</div>
+            </div>
+          </div>
+        </div>
+        <div class="bubble-row left">
+          <div class="avatar spk-a">A</div>
+          <div class="bubble-wrap">
+            <div class="bubble left">
+              <div class="bubble-en">Okay. Please let me know if there are any other updates.
+                <button class="say" data-say="Okay. Please let me know if there are any other updates." title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">알겠습니다. 다른 변동 사항 있으면 제게 알려주세요.</div>
+            </div>
+          </div>
+        </div>
+        <div class="bubble-row right">
+          <div class="avatar spk-b">B</div>
+          <div class="bubble-wrap">
+            <div class="bubble right">
+              <div class="bubble-en">Will do. Thanks for your patience!
+                <button class="say" data-say="Will do. Thanks for your patience!" title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">그렇게 하겠습니다. 기다려 주셔서 감사합니다!</div>
+            </div>
+          </div>
+        </div></div>
+  </div>
+
+  <div class="card"><div class="c-title">&#11088; 핵심 표현</div><div class="expr"><span class="expr-en">"I&#x27;m calling about my order."</span><span class="arr">&#8594;</span><span class="expr-ko">제 주문 건 때문에 전화드렸어요.</span></div><div class="expr"><span class="expr-en">"Has my order shipped yet?"</span><span class="arr">&#8594;</span><span class="expr-ko">제 주문 건 벌써 발송되었나요?</span></div><div class="expr"><span class="expr-en">"When is it supposed to arrive?"</span><span class="arr">&#8594;</span><span class="expr-ko">언제 도착할 예정인가요?</span></div><div class="expr"><span class="expr-en">"Please let me know if..."</span><span class="arr">&#8594;</span><span class="expr-ko">~라면 제게 알려주세요.</span></div></div>
+
+  <div class="card">
+    <div class="c-title">&#128161; 학습 팁</div>
+    <div class="tip g"><b>&#128221; Grammar</b>be supposed to+동사원형 은 &#x27;원래 ~하기로 되어 있다, ~할 예정인다&#x27;라는 뜻으로 배송 예정일을 물어볼 때 아주 유용하게 쓰입니다.</div>
+    <div class="tip p"><b>&#128266; Pronunciation</b>&#x27;shipped yet&#x27;을 발음할 때는 &#x27;십프트 옛&#x27;이 아니라 &#x27;십-옛&#x27;처럼 t 받침을 부드럽게 연음해서 발음하면 훨씬 자연스럽습니다.</div>
+  </div>
+
+  <div class="card"><div class="c-title">&#9999;&#65039; 따라 말하기</div><div class="practice"><span>&#128172; I&#x27;m calling about my order.</span><button class="say" data-say="I&#x27;m calling about my order." title="발음 듣기">&#128266;</button></div><div class="practice"><span>&#128172; Has my order shipped yet?</span><button class="say" data-say="Has my order shipped yet?" title="발음 듣기">&#128266;</button></div><div class="practice"><span>&#128172; When is it supposed to arrive?</span><button class="say" data-say="When is it supposed to arrive?" title="발음 듣기">&#128266;</button></div></div>
+
+  <button class="done-btn" id="doneBtn">&#9989; 오늘 학습 완료!</button>
+  <a class="archive-link" href="https://oysking55-ctrl.github.io/english-daily/list.html" target="_blank" rel="noopener">&#128218; 지난 레슨 전체 보기 &#8594;</a>
+  <div class="foot">생성: 2026-11-03 09:00 · 콘텐츠 자동 생성이라 표현이 어색할 수 있어요.<br>
+  발음 버튼은 브라우저 음성합성(TTS)을 사용합니다.</div>
+</div>
+
+<script>
+  document.querySelectorAll('.say').forEach(function(b) {
+    b.addEventListener('click', function() {
+      try {
+        var u = new SpeechSynthesisUtterance(b.getAttribute('data-say'));
+        u.lang = 'en-US'; u.rate = 0.95;
+        speechSynthesis.cancel(); speechSynthesis.speak(u);
+      } catch (e) {}
+    });
+  });
+  var key = 'lesson_done_2026-11-03';
+  var btn = document.getElementById('doneBtn');
+  function mark() { btn.textContent = '\uD83C\uDF89 오늘 학습 완료! 내일 또 만나요!'; btn.classList.add('done'); }
+  try { if (localStorage.getItem(key)) mark(); } catch (e) {}
+  btn.addEventListener('click', function() {
+    try { localStorage.setItem(key, '1'); } catch (e) {}
+    mark();
+  });
+</script>
+</body>
+</html>
