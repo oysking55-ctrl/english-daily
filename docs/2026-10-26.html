@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>오늘의 영어회화 · Day 27</title>
+<style>
+  * { box-sizing:border-box; margin:0; padding:0; }
+  :root {
+    --bg:#eef2fb; --card:#fff; --ink:#1e2a3a; --sub:#5b6b80; --line:#dbe3f0;
+    --accent:#2e5fa3; --accent-soft:#e8f0fd; --b:#059669; --b-soft:#d1fae5;
+  }
+  @media (prefers-color-scheme:dark) {
+    :root { --bg:#0f141c; --card:#171e29; --ink:#e6ebf2; --sub:#9aa8bc; --line:#28323f;
+             --accent:#6f9bff; --accent-soft:#1c2a44; --b:#34d399; --b-soft:#123528; }
+  }
+  body { font-family:"Malgun Gothic","Apple SD Gothic Neo",system-ui,sans-serif;
+    background:var(--bg); color:var(--ink); line-height:1.6; padding-bottom:70px; }
+  .header { background:linear-gradient(135deg,#1a3a6c,#2e5fa3); color:#fff;
+    padding:26px 20px 20px; text-align:center; }
+  .kicker { font-size:12px; letter-spacing:2px; opacity:.8; text-transform:uppercase; }
+  .h-title { font-size:22px; font-weight:700; margin:8px 0 2px; }
+  .h-topic-en { font-size:13px; opacity:.85; }
+  .h-emoji { font-size:42px; margin:10px 0 6px; }
+  .h-meta { font-size:12px; opacity:.8; }
+  .h-src { display:inline-block; margin-top:8px; font-size:11px; background:rgba(255,255,255,.18);
+    border-radius:20px; padding:2px 10px; }
+  .wrap { max-width:720px; margin:0 auto; padding:18px 14px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:14px;
+    padding:18px; margin-bottom:14px; box-shadow:0 1px 8px rgba(0,0,0,.06); }
+  .c-title { font-size:13px; font-weight:700; color:var(--accent); text-transform:uppercase;
+    letter-spacing:1px; margin-bottom:12px; }
+  .situation { background:var(--accent-soft); border-left:4px solid var(--accent);
+    border-radius:0 8px 8px 0; padding:12px 14px; }
+  .situation .ko { font-weight:600; }
+  .situation .en { font-size:13px; color:var(--sub); font-style:italic; }
+  .vocab-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:10px; }
+  .vocab-card { background:var(--accent-soft); border:1px solid var(--line); border-radius:10px;
+    padding:11px 10px; text-align:center; }
+  .vocab-word { font-size:15px; font-weight:700; color:var(--accent); }
+  .vocab-pron { font-size:11px; color:var(--sub); margin:4px 0; }
+  .vocab-meaning { font-size:12.5px; font-weight:600; }
+  .dialogue { display:flex; flex-direction:column; gap:11px; }
+  .bubble-row { display:flex; gap:8px; align-items:flex-start; }
+  .bubble-row.right { flex-direction:row-reverse; }
+  .avatar { width:30px; height:30px; border-radius:50%; color:#fff; font-weight:700;
+    font-size:13px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .spk-a { background:var(--accent); } .spk-b { background:var(--b); }
+  .bubble-wrap { flex:1; }
+  .bubble-row.right .bubble-wrap { display:flex; justify-content:flex-end; }
+  .bubble { display:inline-block; max-width:100%; border-radius:12px; padding:9px 13px; }
+  .bubble.left { background:var(--accent-soft); border-top-left-radius:2px; }
+  .bubble.right { background:var(--b-soft); border-top-right-radius:2px; }
+  .bubble-en { font-size:14px; font-weight:600; }
+  .bubble-ko { font-size:12px; color:var(--sub); margin-top:3px; }
+  .expr { display:flex; gap:8px; flex-wrap:wrap; align-items:baseline; background:var(--accent-soft);
+    border-radius:8px; padding:9px 12px; margin-bottom:7px; }
+  .expr-en { font-weight:700; color:var(--accent); font-size:14px; }
+  .arr { color:var(--sub); } .expr-ko { font-size:13px; color:var(--sub); }
+  .tip { border-radius:10px; padding:12px 14px; margin-bottom:9px; font-size:13px; line-height:1.7; }
+  .tip.g { background:var(--b-soft); } .tip.p { background:#fff3e0; color:#7a4a12; }
+  @media (prefers-color-scheme:dark) { .tip.p { background:#3a2c15; color:#ffcf8f; } }
+  .tip b { display:block; font-size:11px; text-transform:uppercase; letter-spacing:1px; margin-bottom:4px; }
+  .practice { display:flex; justify-content:space-between; align-items:center; gap:8px;
+    background:var(--accent-soft); border-left:3px solid var(--accent); border-radius:8px;
+    padding:9px 12px; margin-bottom:7px; font-size:13px; font-weight:600; }
+  .say { border:0; background:transparent; cursor:pointer; font-size:13px; opacity:.55;
+    padding:2px 4px; }
+  .say:hover { opacity:1; }
+  .done-btn { display:block; width:100%; max-width:360px; margin:22px auto 0; border:0;
+    border-radius:12px; padding:15px; font-size:16px; font-weight:700; color:#fff; cursor:pointer;
+    background:linear-gradient(135deg,#1a3a6c,#2e5fa3); font-family:inherit; }
+  .done-btn.done { background:var(--b); cursor:default; }
+  .archive-link { display:block; text-align:center; margin-top:14px; font-size:13px;
+    font-weight:600; color:var(--accent); text-decoration:none; }
+  .archive-link:hover { text-decoration:underline; }
+  .foot { text-align:center; font-size:11px; color:var(--sub); margin-top:22px; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="kicker">&#128218; 오늘의 영어회화</div>
+  <div class="h-title">음식과 맛 표현하기</div>
+  <div class="h-topic-en">Talking About Food and Flavors</div>
+  <div class="h-emoji">🍜</div>
+  <div class="h-meta">2026년 10월 26일 (Mon) &nbsp;|&nbsp; Day 27</div>
+  <div class="h-src">네이버 블로그 + Gemini · 음식·맛 이야기</div>
+</div>
+<div class="wrap">
+
+  <div class="card">
+    <div class="c-title">&#127919; 오늘의 상황</div>
+    <div class="situation">
+      <div class="ko">친구나 동료와 함께 음식을 먹으며 맛과 풍미에 대해 자연스럽게 이야기 나누는 상황</div>
+      <div class="en">Sharing opinions on food and flavors while dining with a friend or colleague</div>
+    </div>
+    <p style="font-size:12px;color:var(--sub);margin-top:8px">중급 학습자가 식당이나 모임에서 맛 표현을 디테일하고 생생하게 할 수 있도록 구성된 실용 회화입니다.</p>
+  </div>
+
+  <div class="card">
+    <div class="c-title">&#128218; 오늘의 단어 (5)</div>
+    <div class="vocab-grid">
+        <div class="vocab-card">
+          <div class="vocab-word">savory
+            <button class="say" data-say="savory" title="발음 듣기">&#128266;</button>
+          </div>
+          <div class="vocab-pron">[세이버리]</div>
+          <div class="vocab-meaning">짭조름하고 감칠맛 나는</div>
+        </div>
+        <div class="vocab-card">
+          <div class="vocab-word">flavorful
+            <button class="say" data-say="flavorful" title="발음 듣기">&#128266;</button>
+          </div>
+          <div class="vocab-pron">[플레이버풀]</div>
+          <div class="vocab-meaning">풍미가 가득한, 맛이 진한</div>
+        </div>
+        <div class="vocab-card">
+          <div class="vocab-word">crispy
+            <button class="say" data-say="crispy" title="발음 듣기">&#128266;</button>
+          </div>
+          <div class="vocab-pron">[크리스피]</div>
+          <div class="vocab-meaning">바삭바삭한</div>
+        </div>
+        <div class="vocab-card">
+          <div class="vocab-word">rich
+            <button class="say" data-say="rich" title="발음 듣기">&#128266;</button>
+          </div>
+          <div class="vocab-pron">[리치]</div>
+          <div class="vocab-meaning">(맛이) 깊고 진한, 기름진</div>
+        </div>
+        <div class="vocab-card">
+          <div class="vocab-word">addictive
+            <button class="say" data-say="addictive" title="발음 듣기">&#128266;</button>
+          </div>
+          <div class="vocab-pron">[어딕티브]</div>
+          <div class="vocab-meaning">자꾸 끌리는, 중독성 있는</div>
+        </div></div>
+  </div>
+
+  <div class="card">
+    <div class="c-title">&#128172; 오늘의 대화</div>
+    <div class="dialogue">
+        <div class="bubble-row left">
+          <div class="avatar spk-a">A</div>
+          <div class="bubble-wrap">
+            <div class="bubble left">
+              <div class="bubble-en">How do you like your soup? It looks super flavorful.
+                <button class="say" data-say="How do you like your soup? It looks super flavorful." title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">국물 어때? 엄청 풍미가 진해 보여.</div>
+            </div>
+          </div>
+        </div>
+        <div class="bubble-row right">
+          <div class="avatar spk-b">B</div>
+          <div class="bubble-wrap">
+            <div class="bubble right">
+              <div class="bubble-en">It is amazing. The broth is so rich and savory.
+                <button class="say" data-say="It is amazing. The broth is so rich and savory." title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">진짜 맛있어. 국물이 엄청 진하고 감칠맛 나.</div>
+            </div>
+          </div>
+        </div>
+        <div class="bubble-row left">
+          <div class="avatar spk-a">A</div>
+          <div class="bubble-wrap">
+            <div class="bubble left">
+              <div class="bubble-en">And the crispy toppings add a nice texture to it.
+                <button class="say" data-say="And the crispy toppings add a nice texture to it." title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">그리고 바삭한 토핑 때문에 식감이 훨씬 좋다.</div>
+            </div>
+          </div>
+        </div>
+        <div class="bubble-row right">
+          <div class="avatar spk-b">B</div>
+          <div class="bubble-wrap">
+            <div class="bubble right">
+              <div class="bubble-en">Totally. It completely balances out the heavy broth.
+                <button class="say" data-say="Totally. It completely balances out the heavy broth." title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">맞아. 진한 국물 맛을 아주 잘 잡아주네.</div>
+            </div>
+          </div>
+        </div>
+        <div class="bubble-row left">
+          <div class="avatar spk-a">A</div>
+          <div class="bubble-wrap">
+            <div class="bubble left">
+              <div class="bubble-en">I can&#x27;t stop eating this. It&#x27;s totally addictive.
+                <button class="say" data-say="I can&#x27;t stop eating this. It&#x27;s totally addictive." title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">이거 멈출 수가 없네. 진짜 중독성 있어.</div>
+            </div>
+          </div>
+        </div>
+        <div class="bubble-row right">
+          <div class="avatar spk-b">B</div>
+          <div class="bubble-wrap">
+            <div class="bubble right">
+              <div class="bubble-en">I know, right? I&#x27;m definitely coming back here again.
+                <button class="say" data-say="I know, right? I&#x27;m definitely coming back here again." title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">그치? 나 여기 무조건 다시 올 거야.</div>
+            </div>
+          </div>
+        </div>
+        <div class="bubble-row left">
+          <div class="avatar spk-a">A</div>
+          <div class="bubble-wrap">
+            <div class="bubble left">
+              <div class="bubble-en">We should bring Sarah next time. She loves good food.
+                <button class="say" data-say="We should bring Sarah next time. She loves good food." title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">다음에는 사라(Sarah)도 같이 데리고 오자. 맛있는 거 엄청 좋아하잖아.</div>
+            </div>
+          </div>
+        </div>
+        <div class="bubble-row right">
+          <div class="avatar spk-b">B</div>
+          <div class="bubble-wrap">
+            <div class="bubble right">
+              <div class="bubble-en">Sounds like a plan! She&#x27;s gonna love this place.
+                <button class="say" data-say="Sounds like a plan! She&#x27;s gonna love this place." title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">좋다! 여기 엄청 좋아할걸.</div>
+            </div>
+          </div>
+        </div></div>
+  </div>
+
+  <div class="card"><div class="c-title">&#11088; 핵심 표현</div><div class="expr"><span class="expr-en">"It is so rich and savory."</span><span class="arr">&#8594;</span><span class="expr-ko">진하고 감칠맛이 난다.</span></div><div class="expr"><span class="expr-en">"It adds a nice texture."</span><span class="arr">&#8594;</span><span class="expr-ko">식감을 더해준다.</span></div><div class="expr"><span class="expr-en">"It&#x27;s totally addictive."</span><span class="arr">&#8594;</span><span class="expr-ko">완전 중독성 있어, 자꾸 손이 가.</span></div><div class="expr"><span class="expr-en">"Sounds like a plan!"</span><span class="arr">&#8594;</span><span class="expr-ko">좋은 생각이야, 그렇게 하자!</span></div></div>
+
+  <div class="card">
+    <div class="c-title">&#128161; 학습 팁</div>
+    <div class="tip g"><b>&#128221; Grammar</b>음식의 상태나 맛을 묘사할 때는 &#x27;It is + 형용사&#x27; 구조를 기본으로 사용하고, 강조할 때는 &#x27;super&#x27;, &#x27;so&#x27;, &#x27;totally&#x27; 같은 부사를 붙여주면 원어민처럼 자연스럽습니다.</div>
+    <div class="tip p"><b>&#128266; Pronunciation</b>&#x27;flavorful&#x27;은 플레이버풀, &#x27;savory&#x27;는 세이버리로 발음할 때 v 소리에서 아랫입술을 살짝 물었다가 떼며 내야 원어민 발음에 가까워집니다.</div>
+  </div>
+
+  <div class="card"><div class="c-title">&#9999;&#65039; 따라 말하기</div><div class="practice"><span>&#128172; The broth is so rich and savory.</span><button class="say" data-say="The broth is so rich and savory." title="발음 듣기">&#128266;</button></div><div class="practice"><span>&#128172; The crispy toppings add a nice texture.</span><button class="say" data-say="The crispy toppings add a nice texture." title="발음 듣기">&#128266;</button></div><div class="practice"><span>&#128172; I can&#x27;t stop eating this. It&#x27;s totally addictive.</span><button class="say" data-say="I can&#x27;t stop eating this. It&#x27;s totally addictive." title="발음 듣기">&#128266;</button></div></div>
+
+  <button class="done-btn" id="doneBtn">&#9989; 오늘 학습 완료!</button>
+  <a class="archive-link" href="https://oysking55-ctrl.github.io/english-daily/list.html" target="_blank" rel="noopener">&#128218; 지난 레슨 전체 보기 &#8594;</a>
+  <div class="foot">생성: 2026-10-26 09:00 · 콘텐츠 자동 생성이라 표현이 어색할 수 있어요.<br>
+  발음 버튼은 브라우저 음성합성(TTS)을 사용합니다.</div>
+</div>
+
+<script>
+  document.querySelectorAll('.say').forEach(function(b) {
+    b.addEventListener('click', function() {
+      try {
+        var u = new SpeechSynthesisUtterance(b.getAttribute('data-say'));
+        u.lang = 'en-US'; u.rate = 0.95;
+        speechSynthesis.cancel(); speechSynthesis.speak(u);
+      } catch (e) {}
+    });
+  });
+  var key = 'lesson_done_2026-10-26';
+  var btn = document.getElementById('doneBtn');
+  function mark() { btn.textContent = '\uD83C\uDF89 오늘 학습 완료! 내일 또 만나요!'; btn.classList.add('done'); }
+  try { if (localStorage.getItem(key)) mark(); } catch (e) {}
+  btn.addEventListener('click', function() {
+    try { localStorage.setItem(key, '1'); } catch (e) {}
+    mark();
+  });
+</script>
+</body>
+</html>
