@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>오늘의 영어회화 · Day 36</title>
+<style>
+  * { box-sizing:border-box; margin:0; padding:0; }
+  :root {
+    --bg:#eef2fb; --card:#fff; --ink:#1e2a3a; --sub:#5b6b80; --line:#dbe3f0;
+    --accent:#2e5fa3; --accent-soft:#e8f0fd; --b:#059669; --b-soft:#d1fae5;
+  }
+  @media (prefers-color-scheme:dark) {
+    :root { --bg:#0f141c; --card:#171e29; --ink:#e6ebf2; --sub:#9aa8bc; --line:#28323f;
+             --accent:#6f9bff; --accent-soft:#1c2a44; --b:#34d399; --b-soft:#123528; }
+  }
+  body { font-family:"Malgun Gothic","Apple SD Gothic Neo",system-ui,sans-serif;
+    background:var(--bg); color:var(--ink); line-height:1.6; padding-bottom:70px; }
+  .header { background:linear-gradient(135deg,#1a3a6c,#2e5fa3); color:#fff;
+    padding:26px 20px 20px; text-align:center; }
+  .kicker { font-size:12px; letter-spacing:2px; opacity:.8; text-transform:uppercase; }
+  .h-title { font-size:22px; font-weight:700; margin:8px 0 2px; }
+  .h-topic-en { font-size:13px; opacity:.85; }
+  .h-emoji { font-size:42px; margin:10px 0 6px; }
+  .h-meta { font-size:12px; opacity:.8; }
+  .h-src { display:inline-block; margin-top:8px; font-size:11px; background:rgba(255,255,255,.18);
+    border-radius:20px; padding:2px 10px; }
+  .wrap { max-width:720px; margin:0 auto; padding:18px 14px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:14px;
+    padding:18px; margin-bottom:14px; box-shadow:0 1px 8px rgba(0,0,0,.06); }
+  .c-title { font-size:13px; font-weight:700; color:var(--accent); text-transform:uppercase;
+    letter-spacing:1px; margin-bottom:12px; }
+  .situation { background:var(--accent-soft); border-left:4px solid var(--accent);
+    border-radius:0 8px 8px 0; padding:12px 14px; }
+  .situation .ko { font-weight:600; }
+  .situation .en { font-size:13px; color:var(--sub); font-style:italic; }
+  .vocab-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:10px; }
+  .vocab-card { background:var(--accent-soft); border:1px solid var(--line); border-radius:10px;
+    padding:11px 10px; text-align:center; }
+  .vocab-word { font-size:15px; font-weight:700; color:var(--accent); }
+  .vocab-pron { font-size:11px; color:var(--sub); margin:4px 0; }
+  .vocab-meaning { font-size:12.5px; font-weight:600; }
+  .dialogue { display:flex; flex-direction:column; gap:11px; }
+  .bubble-row { display:flex; gap:8px; align-items:flex-start; }
+  .bubble-row.right { flex-direction:row-reverse; }
+  .avatar { width:30px; height:30px; border-radius:50%; color:#fff; font-weight:700;
+    font-size:13px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .spk-a { background:var(--accent); } .spk-b { background:var(--b); }
+  .bubble-wrap { flex:1; }
+  .bubble-row.right .bubble-wrap { display:flex; justify-content:flex-end; }
+  .bubble { display:inline-block; max-width:100%; border-radius:12px; padding:9px 13px; }
+  .bubble.left { background:var(--accent-soft); border-top-left-radius:2px; }
+  .bubble.right { background:var(--b-soft); border-top-right-radius:2px; }
+  .bubble-en { font-size:14px; font-weight:600; }
+  .bubble-ko { font-size:12px; color:var(--sub); margin-top:3px; }
+  .expr { display:flex; gap:8px; flex-wrap:wrap; align-items:baseline; background:var(--accent-soft);
+    border-radius:8px; padding:9px 12px; margin-bottom:7px; }
+  .expr-en { font-weight:700; color:var(--accent); font-size:14px; }
+  .arr { color:var(--sub); } .expr-ko { font-size:13px; color:var(--sub); }
+  .tip { border-radius:10px; padding:12px 14px; margin-bottom:9px; font-size:13px; line-height:1.7; }
+  .tip.g { background:var(--b-soft); } .tip.p { background:#fff3e0; color:#7a4a12; }
+  @media (prefers-color-scheme:dark) { .tip.p { background:#3a2c15; color:#ffcf8f; } }
+  .tip b { display:block; font-size:11px; text-transform:uppercase; letter-spacing:1px; margin-bottom:4px; }
+  .practice { display:flex; justify-content:space-between; align-items:center; gap:8px;
+    background:var(--accent-soft); border-left:3px solid var(--accent); border-radius:8px;
+    padding:9px 12px; margin-bottom:7px; font-size:13px; font-weight:600; }
+  .say { border:0; background:transparent; cursor:pointer; font-size:13px; opacity:.55;
+    padding:2px 4px; }
+  .say:hover { opacity:1; }
+  .done-btn { display:block; width:100%; max-width:360px; margin:22px auto 0; border:0;
+    border-radius:12px; padding:15px; font-size:16px; font-weight:700; color:#fff; cursor:pointer;
+    background:linear-gradient(135deg,#1a3a6c,#2e5fa3); font-family:inherit; }
+  .done-btn.done { background:var(--b); cursor:default; }
+  .archive-link { display:block; text-align:center; margin-top:14px; font-size:13px;
+    font-weight:600; color:var(--accent); text-decoration:none; }
+  .archive-link:hover { text-decoration:underline; }
+  .foot { text-align:center; font-size:11px; color:var(--sub); margin-top:22px; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="kicker">&#128218; 오늘의 영어회화</div>
+  <div class="h-title">대화 자연스럽게 끝내기</div>
+  <div class="h-topic-en">Wrapping up a conversation naturally</div>
+  <div class="h-emoji">👋</div>
+  <div class="h-meta">2026년 11월 09일 (Mon) &nbsp;|&nbsp; Day 36</div>
+  <div class="h-src">네이버 블로그 + Gemini · 대화 자연스럽게 끝내기</div>
+</div>
+<div class="wrap">
+
+  <div class="card">
+    <div class="c-title">&#127919; 오늘의 상황</div>
+    <div class="situation">
+      <div class="ko">친구와 통화를 하거나 수다를 떨다가 이제 그만 대화를 마무리하고 싶을 때 쓰는 표현입니다.</div>
+      <div class="en">When you want to gracefully end a phone call or chat with a friend.</div>
+    </div>
+    <p style="font-size:12px;color:var(--sub);margin-top:8px">중급 이상 학습자에게 추천합니다. 한국인들은 대화를 끝낼 때 &#x27;끊을게&#x27;를 직역해서 I will cut the phone이라고 하기 쉽지만, 원어민들은 I&#x27;ll let you go나 I should get going을 훨씬 더 많이 씁니다.</p>
+  </div>
+
+  <div class="card">
+    <div class="c-title">&#128218; 오늘의 단어 (5)</div>
+    <div class="vocab-grid">
+        <div class="vocab-card">
+          <div class="vocab-word">I&#x27;ll let you go
+            <button class="say" data-say="I&#x27;ll let you go" title="발음 듣기">&#128266;</button>
+          </div>
+          <div class="vocab-pron">[아일 렛 유 고]</div>
+          <div class="vocab-meaning">이제 그만 통화(대화) 끊어줄게 / 바쁠 테니 이만 가볼게</div>
+        </div>
+        <div class="vocab-card">
+          <div class="vocab-word">I should get going
+            <button class="say" data-say="I should get going" title="발음 듣기">&#128266;</button>
+          </div>
+          <div class="vocab-pron">[아이 슈드 겟 고잉]</div>
+          <div class="vocab-meaning">나 이제 가봐야겠어</div>
+        </div>
+        <div class="vocab-card">
+          <div class="vocab-word">Catch you later
+            <button class="say" data-say="Catch you later" title="발음 듣기">&#128266;</button>
+          </div>
+          <div class="vocab-pron">[캐치 유 레이터]</div>
+          <div class="vocab-meaning">나중에 보자 / 다음에 또 얘기하자</div>
+        </div>
+        <div class="vocab-card">
+          <div class="vocab-word">Keep in touch
+            <button class="say" data-say="Keep in touch" title="발음 듣기">&#128266;</button>
+          </div>
+          <div class="vocab-pron">[킵 인 터치]</div>
+          <div class="vocab-meaning">계단 연락하고 지내자</div>
+        </div>
+        <div class="vocab-card">
+          <div class="vocab-word">Wrap up
+            <button class="say" data-say="Wrap up" title="발음 듣기">&#128266;</button>
+          </div>
+          <div class="vocab-pron">[랩 업]</div>
+          <div class="vocab-meaning">마무리하다</div>
+        </div></div>
+  </div>
+
+  <div class="card">
+    <div class="c-title">&#128172; 오늘의 대화</div>
+    <div class="dialogue">
+        <div class="bubble-row left">
+          <div class="avatar spk-a">A</div>
+          <div class="bubble-wrap">
+            <div class="bubble left">
+              <div class="bubble-en">Anyway, it was so good catching up with you!
+                <button class="say" data-say="Anyway, it was so good catching up with you!" title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">아무튼, 너랑 이렇게 얘기하니까 너무 좋았다!</div>
+            </div>
+          </div>
+        </div>
+        <div class="bubble-row right">
+          <div class="avatar spk-b">B</div>
+          <div class="bubble-wrap">
+            <div class="bubble right">
+              <div class="bubble-en">Me too! Time just flies when we talk.
+                <button class="say" data-say="Me too! Time just flies when we talk." title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">나도! 얘기하다 보면 시간이 너무 빨리 가.</div>
+            </div>
+          </div>
+        </div>
+        <div class="bubble-row left">
+          <div class="avatar spk-a">A</div>
+          <div class="bubble-wrap">
+            <div class="bubble left">
+              <div class="bubble-en">Right? But I know you have to run errands, so I&#x27;ll let you go.
+                <button class="say" data-say="Right? But I know you have to run errands, so I&#x27;ll let you go." title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">그지? 근데 너 볼일 봐야 하니까 이만 끊어줄게.</div>
+            </div>
+          </div>
+        </div>
+        <div class="bubble-row right">
+          <div class="avatar spk-b">B</div>
+          <div class="bubble-wrap">
+            <div class="bubble right">
+              <div class="bubble-en">Thanks for understanding. I really needed to get this done.
+                <button class="say" data-say="Thanks for understanding. I really needed to get this done." title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">이해해 줘서 고마워. 이거 진짜 끝내야 했거든.</div>
+            </div>
+          </div>
+        </div>
+        <div class="bubble-row left">
+          <div class="avatar spk-a">A</div>
+          <div class="bubble-wrap">
+            <div class="bubble left">
+              <div class="bubble-en">No worries. Good luck with everything!
+                <button class="say" data-say="No worries. Good luck with everything!" title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">걱정 마. 다 잘될 거야!</div>
+            </div>
+          </div>
+        </div>
+        <div class="bubble-row right">
+          <div class="avatar spk-b">B</div>
+          <div class="bubble-wrap">
+            <div class="bubble right">
+              <div class="bubble-en">Thanks! I should get going now. Talk to you soon.
+                <button class="say" data-say="Thanks! I should get going now. Talk to you soon." title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">고마워! 나 이제 가봐야겠다. 곧 또 연락할게.</div>
+            </div>
+          </div>
+        </div>
+        <div class="bubble-row left">
+          <div class="avatar spk-a">A</div>
+          <div class="bubble-wrap">
+            <div class="bubble left">
+              <div class="bubble-en">Sounds good. Catch you later!
+                <button class="say" data-say="Sounds good. Catch you later!" title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">그래 좋아. 나중에 봐!</div>
+            </div>
+          </div>
+        </div>
+        <div class="bubble-row right">
+          <div class="avatar spk-b">B</div>
+          <div class="bubble-wrap">
+            <div class="bubble right">
+              <div class="bubble-en">Bye! Take care.
+                <button class="say" data-say="Bye! Take care." title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">잘 가! 조심하고.</div>
+            </div>
+          </div>
+        </div></div>
+  </div>
+
+  <div class="card"><div class="c-title">&#11088; 핵심 표현</div><div class="expr"><span class="expr-en">"I&#x27;ll let you go."</span><span class="arr">&#8594;</span><span class="expr-ko">상대방이 바쁠 것 같거나 오래 통화했을 때 &#x27;이제 그만 끊어줄게&#x27;라는 뜻으로 쓰는 배려 섞인 마무리 표현.</span></div><div class="expr"><span class="expr-en">"I should get going."</span><span class="arr">&#8594;</span><span class="expr-ko">자기가 이제 자리를 뜨거나 대화를 끝내야 할 때 쓰는 가장 흔한 표현.</span></div><div class="expr"><span class="expr-en">"Catch you later."</span><span class="arr">&#8594;</span><span class="expr-ko">다음에 또 보자는 인사를 캐주얼하게 할 때 쓰는 말.</span></div><div class="expr"><span class="expr-en">"Time flies."</span><span class="arr">&#8594;</span><span class="expr-ko">시간이 참 빠르다는 뜻으로 대화를 마무리할 분위기를 잡을 때 유용함.</span></div></div>
+
+  <div class="card">
+    <div class="c-title">&#128161; 학습 팁</div>
+    <div class="tip g"><b>&#128221; Grammar</b>I&#x27;ll let you go에서 let은 사역동사로 &#x27;~하게 두다&#x27;라는 뜻입니다. 직역하면 &#x27;너를 가게 둘게&#x27; 즉, 붙잡아두지 않고 보내주겠다는 의미로 원어민들이 전화나 대화를 끝낼 때 입에 달고 사는 표현입니다.</div>
+    <div class="tip p"><b>&#128266; Pronunciation</b>I&#x27;ll let you go를 말할 때 &#x27;렛 유&#x27;를 정직하게 발음하기보다 &#x27;레츄&#x27;처럼 연음해서 자연스럽게 흘려 말하면 훨씬 원어민스럽습니다.</div>
+  </div>
+
+  <div class="card"><div class="c-title">&#9999;&#65039; 따라 말하기</div><div class="practice"><span>&#128172; Anyway, I&#x27;ll let you go so you can rest.</span><button class="say" data-say="Anyway, I&#x27;ll let you go so you can rest." title="발음 듣기">&#128266;</button></div><div class="practice"><span>&#128172; I should get going now. Have a good one!</span><button class="say" data-say="I should get going now. Have a good one!" title="발음 듣기">&#128266;</button></div><div class="practice"><span>&#128172; It was great talking to you. Catch you later!</span><button class="say" data-say="It was great talking to you. Catch you later!" title="발음 듣기">&#128266;</button></div></div>
+
+  <button class="done-btn" id="doneBtn">&#9989; 오늘 학습 완료!</button>
+  <a class="archive-link" href="https://oysking55-ctrl.github.io/english-daily/list.html" target="_blank" rel="noopener">&#128218; 지난 레슨 전체 보기 &#8594;</a>
+  <div class="foot">생성: 2026-11-09 08:37 · 콘텐츠 자동 생성이라 표현이 어색할 수 있어요.<br>
+  발음 버튼은 브라우저 음성합성(TTS)을 사용합니다.</div>
+</div>
+
+<script>
+  document.querySelectorAll('.say').forEach(function(b) {
+    b.addEventListener('click', function() {
+      try {
+        var u = new SpeechSynthesisUtterance(b.getAttribute('data-say'));
+        u.lang = 'en-US'; u.rate = 0.95;
+        speechSynthesis.cancel(); speechSynthesis.speak(u);
+      } catch (e) {}
+    });
+  });
+  var key = 'lesson_done_2026-11-09';
+  var btn = document.getElementById('doneBtn');
+  function mark() { btn.textContent = '\uD83C\uDF89 오늘 학습 완료! 내일 또 만나요!'; btn.classList.add('done'); }
+  try { if (localStorage.getItem(key)) mark(); } catch (e) {}
+  btn.addEventListener('click', function() {
+    try { localStorage.setItem(key, '1'); } catch (e) {}
+    mark();
+  });
+</script>
+</body>
+</html>
