@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>오늘의 영어회화 · Day 43</title>
+<style>
+  * { box-sizing:border-box; margin:0; padding:0; }
+  :root {
+    --bg:#eef2fb; --card:#fff; --ink:#1e2a3a; --sub:#5b6b80; --line:#dbe3f0;
+    --accent:#2e5fa3; --accent-soft:#e8f0fd; --b:#059669; --b-soft:#d1fae5;
+  }
+  @media (prefers-color-scheme:dark) {
+    :root { --bg:#0f141c; --card:#171e29; --ink:#e6ebf2; --sub:#9aa8bc; --line:#28323f;
+             --accent:#6f9bff; --accent-soft:#1c2a44; --b:#34d399; --b-soft:#123528; }
+  }
+  body { font-family:"Malgun Gothic","Apple SD Gothic Neo",system-ui,sans-serif;
+    background:var(--bg); color:var(--ink); line-height:1.6; padding-bottom:70px; }
+  .header { background:linear-gradient(135deg,#1a3a6c,#2e5fa3); color:#fff;
+    padding:26px 20px 20px; text-align:center; }
+  .kicker { font-size:12px; letter-spacing:2px; opacity:.8; text-transform:uppercase; }
+  .h-title { font-size:22px; font-weight:700; margin:8px 0 2px; }
+  .h-topic-en { font-size:13px; opacity:.85; }
+  .h-emoji { font-size:42px; margin:10px 0 6px; }
+  .h-meta { font-size:12px; opacity:.8; }
+  .h-src { display:inline-block; margin-top:8px; font-size:11px; background:rgba(255,255,255,.18);
+    border-radius:20px; padding:2px 10px; }
+  .wrap { max-width:720px; margin:0 auto; padding:18px 14px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:14px;
+    padding:18px; margin-bottom:14px; box-shadow:0 1px 8px rgba(0,0,0,.06); }
+  .c-title { font-size:13px; font-weight:700; color:var(--accent); text-transform:uppercase;
+    letter-spacing:1px; margin-bottom:12px; }
+  .situation { background:var(--accent-soft); border-left:4px solid var(--accent);
+    border-radius:0 8px 8px 0; padding:12px 14px; }
+  .situation .ko { font-weight:600; }
+  .situation .en { font-size:13px; color:var(--sub); font-style:italic; }
+  .vocab-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:10px; }
+  .vocab-card { background:var(--accent-soft); border:1px solid var(--line); border-radius:10px;
+    padding:11px 10px; text-align:center; }
+  .vocab-word { font-size:15px; font-weight:700; color:var(--accent); }
+  .vocab-pron { font-size:11px; color:var(--sub); margin:4px 0; }
+  .vocab-meaning { font-size:12.5px; font-weight:600; }
+  .dialogue { display:flex; flex-direction:column; gap:11px; }
+  .bubble-row { display:flex; gap:8px; align-items:flex-start; }
+  .bubble-row.right { flex-direction:row-reverse; }
+  .avatar { width:30px; height:30px; border-radius:50%; color:#fff; font-weight:700;
+    font-size:13px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .spk-a { background:var(--accent); } .spk-b { background:var(--b); }
+  .bubble-wrap { flex:1; }
+  .bubble-row.right .bubble-wrap { display:flex; justify-content:flex-end; }
+  .bubble { display:inline-block; max-width:100%; border-radius:12px; padding:9px 13px; }
+  .bubble.left { background:var(--accent-soft); border-top-left-radius:2px; }
+  .bubble.right { background:var(--b-soft); border-top-right-radius:2px; }
+  .bubble-en { font-size:14px; font-weight:600; }
+  .bubble-ko { font-size:12px; color:var(--sub); margin-top:3px; }
+  .expr { display:flex; gap:8px; flex-wrap:wrap; align-items:baseline; background:var(--accent-soft);
+    border-radius:8px; padding:9px 12px; margin-bottom:7px; }
+  .expr-en { font-weight:700; color:var(--accent); font-size:14px; }
+  .arr { color:var(--sub); } .expr-ko { font-size:13px; color:var(--sub); }
+  .tip { border-radius:10px; padding:12px 14px; margin-bottom:9px; font-size:13px; line-height:1.7; }
+  .tip.g { background:var(--b-soft); } .tip.p { background:#fff3e0; color:#7a4a12; }
+  @media (prefers-color-scheme:dark) { .tip.p { background:#3a2c15; color:#ffcf8f; } }
+  .tip b { display:block; font-size:11px; text-transform:uppercase; letter-spacing:1px; margin-bottom:4px; }
+  .practice { display:flex; justify-content:space-between; align-items:center; gap:8px;
+    background:var(--accent-soft); border-left:3px solid var(--accent); border-radius:8px;
+    padding:9px 12px; margin-bottom:7px; font-size:13px; font-weight:600; }
+  .say { border:0; background:transparent; cursor:pointer; font-size:13px; opacity:.55;
+    padding:2px 4px; }
+  .say:hover { opacity:1; }
+  .done-btn { display:block; width:100%; max-width:360px; margin:22px auto 0; border:0;
+    border-radius:12px; padding:15px; font-size:16px; font-weight:700; color:#fff; cursor:pointer;
+    background:linear-gradient(135deg,#1a3a6c,#2e5fa3); font-family:inherit; }
+  .done-btn.done { background:var(--b); cursor:default; }
+  .archive-link { display:block; text-align:center; margin-top:14px; font-size:13px;
+    font-weight:600; color:var(--accent); text-decoration:none; }
+  .archive-link:hover { text-decoration:underline; }
+  .foot { text-align:center; font-size:11px; color:var(--sub); margin-top:22px; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="kicker">&#128218; 오늘의 영어회화</div>
+  <div class="h-title">날씨 이야기</div>
+  <div class="h-topic-en">Talking About the Weather</div>
+  <div class="h-emoji">🌧️</div>
+  <div class="h-meta">2026년 11월 25일 (Wed) &nbsp;|&nbsp; Day 43</div>
+  <div class="h-src">네이버 블로그 + Gemini · 날씨 이야기</div>
+</div>
+<div class="wrap">
+
+  <div class="card">
+    <div class="c-title">&#127919; 오늘의 상황</div>
+    <div class="situation">
+      <div class="ko">카페에서 친구를 만나 창밖의 궂은 날씨에 대해 이야기하고 스몰토크를 나누는 상황</div>
+      <div class="en">Meeting a friend at a cafe and making small talk about the gloomy weather outside.</div>
+    </div>
+    <p style="font-size:12px;color:var(--sub);margin-top:8px">초중급 학습자가 스몰토크에서 가장 자주 쓰이는 날씨 표현과 유용한 관용구를 자연스럽게 익힐 수 있는 레벨입니다.</p>
+  </div>
+
+  <div class="card">
+    <div class="c-title">&#128218; 오늘의 단어 (5)</div>
+    <div class="vocab-grid">
+        <div class="vocab-card">
+          <div class="vocab-word">pouring
+            <button class="say" data-say="pouring" title="발음 듣기">&#128266;</button>
+          </div>
+          <div class="vocab-pron">[포어링]</div>
+          <div class="vocab-meaning">비가 억수같이 쏟아지는</div>
+        </div>
+        <div class="vocab-card">
+          <div class="vocab-word">weather the storm
+            <button class="say" data-say="weather the storm" title="발음 듣기">&#128266;</button>
+          </div>
+          <div class="vocab-pron">[웨더 더 스톰]</div>
+          <div class="vocab-meaning">역경을 헤쳐 나가다, 위기를 넘기다</div>
+        </div>
+        <div class="vocab-card">
+          <div class="vocab-word">chilly
+            <button class="say" data-say="chilly" title="발음 듣기">&#128266;</button>
+          </div>
+          <div class="vocab-pron">[칠리]</div>
+          <div class="vocab-meaning">쌀쌀한</div>
+        </div>
+        <div class="vocab-card">
+          <div class="vocab-word">humid
+            <button class="say" data-say="humid" title="발음 듣기">&#128266;</button>
+          </div>
+          <div class="vocab-pron">[휴미드]</div>
+          <div class="vocab-meaning">후덥지근한, 습한</div>
+        </div>
+        <div class="vocab-card">
+          <div class="vocab-word">gloomy
+            <button class="say" data-say="gloomy" title="발음 듣기">&#128266;</button>
+          </div>
+          <div class="vocab-pron">[글루미]</div>
+          <div class="vocab-meaning">우울한, 날씨가 침울한</div>
+        </div></div>
+  </div>
+
+  <div class="card">
+    <div class="c-title">&#128172; 오늘의 대화</div>
+    <div class="dialogue">
+        <div class="bubble-row left">
+          <div class="avatar spk-a">A</div>
+          <div class="bubble-wrap">
+            <div class="bubble left">
+              <div class="bubble-en">It&#x27;s really pouring out there. I&#x27;m so glad I brought an umbrella.
+                <button class="say" data-say="It&#x27;s really pouring out there. I&#x27;m so glad I brought an umbrella." title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">밖에 비가 엄청 쏟아지네. 우산 가져오길 정말 다행이야.</div>
+            </div>
+          </div>
+        </div>
+        <div class="bubble-row right">
+          <div class="avatar spk-b">B</div>
+          <div class="bubble-wrap">
+            <div class="bubble right">
+              <div class="bubble-en">I know. The weather has been so gloomy all week.
+                <button class="say" data-say="I know. The weather has been so gloomy all week." title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">그러게 말이야. 일주일 내내 날씨가 너무 우중충했어.</div>
+            </div>
+          </div>
+        </div>
+        <div class="bubble-row left">
+          <div class="avatar spk-a">A</div>
+          <div class="bubble-wrap">
+            <div class="bubble left">
+              <div class="bubble-en">Seriously. It feels more like fall than summer with this chilly wind.
+                <button class="say" data-say="Seriously. It feels more like fall than summer with this chilly wind." title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">진짜. 이 쌀쌀한 바람 부는 것만 보면 여름보다는 가을 같아.</div>
+            </div>
+          </div>
+        </div>
+        <div class="bubble-row right">
+          <div class="avatar spk-b">B</div>
+          <div class="bubble-wrap">
+            <div class="bubble right">
+              <div class="bubble-en">At least we don&#x27;t have to deal with that humid heat from last week.
+                <button class="say" data-say="At least we don&#x27;t have to deal with that humid heat from last week." title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">그래도 지난주 같은 후덥지근한 더위는 안 겪어도 되잖아.</div>
+            </div>
+          </div>
+        </div>
+        <div class="bubble-row left">
+          <div class="avatar spk-a">A</div>
+          <div class="bubble-wrap">
+            <div class="bubble left">
+              <div class="bubble-en">That&#x27;s true. We just need to weather the storm for today.
+                <button class="say" data-say="That&#x27;s true. We just need to weather the storm for today." title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">그건 그렇네. 오늘 하루만 잘 버텨내면 되지 뭐.</div>
+            </div>
+          </div>
+        </div>
+        <div class="bubble-row right">
+          <div class="avatar spk-b">B</div>
+          <div class="bubble-wrap">
+            <div class="bubble right">
+              <div class="bubble-en">Definitely. Grab a seat, let&#x27;s get some hot coffee first.
+                <button class="say" data-say="Definitely. Grab a seat, let&#x27;s get some hot coffee first." title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">당연하지. 일단 자리에 앉아서 따뜻한 커피부터 마시자.</div>
+            </div>
+          </div>
+        </div>
+        <div class="bubble-row left">
+          <div class="avatar spk-a">A</div>
+          <div class="bubble-wrap">
+            <div class="bubble left">
+              <div class="bubble-en">Sounds like a plan. A hot latte is exactly what I need right now.
+                <button class="say" data-say="Sounds like a plan. A hot latte is exactly what I need right now." title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">좋은 생각이야. 지금 나한테 딱 필요한 게 따뜻한 라떼거든.</div>
+            </div>
+          </div>
+        </div>
+        <div class="bubble-row right">
+          <div class="avatar spk-b">B</div>
+          <div class="bubble-wrap">
+            <div class="bubble right">
+              <div class="bubble-en">Right? It&#x27;s the ultimate weather for a cozy cafe date.
+                <button class="say" data-say="Right? It&#x27;s the ultimate weather for a cozy cafe date." title="발음 듣기">&#128266;</button>
+              </div>
+              <div class="bubble-ko">그지? 아늑한 카페 데이트하기 딱 좋은 날씨야.</div>
+            </div>
+          </div>
+        </div></div>
+  </div>
+
+  <div class="card"><div class="c-title">&#11088; 핵심 표현</div><div class="expr"><span class="expr-en">"It&#x27;s pouring."</span><span class="arr">&#8594;</span><span class="expr-ko">비가 억수같이 쏟아져.</span></div><div class="expr"><span class="expr-en">"weather the storm"</span><span class="arr">&#8594;</span><span class="expr-ko">역경을 헤쳐 나가다 (어려운 상황을 버티다)</span></div><div class="expr"><span class="expr-en">"It feels like fall."</span><span class="arr">&#8594;</span><span class="expr-ko">가을 날씨 같아.</span></div><div class="expr"><span class="expr-en">"Sounds like a plan."</span><span class="arr">&#8594;</span><span class="expr-ko">좋은 생각이야.</span></div></div>
+
+  <div class="card">
+    <div class="c-title">&#128161; 학습 팁</div>
+    <div class="tip g"><b>&#128221; Grammar</b>비가 많이 온다고 할 때 단순히 &#x27;It&#x27;s raining a lot&#x27; 대신 &#x27;It&#x27;s pouring&#x27;을 쓰면 원어민처럼 훨씬 자연스러운 표현이 됩니다.</div>
+    <div class="tip p"><b>&#128266; Pronunciation</b>&#x27;pouring&#x27;은 &#x27;포어링&#x27;처럼 오 발음을 살려 길게 발음하고, &#x27;weather the storm&#x27;은 연음으로 부드럽게 이어 읽어보세요.</div>
+  </div>
+
+  <div class="card"><div class="c-title">&#9999;&#65039; 따라 말하기</div><div class="practice"><span>&#128172; Look outside, it&#x27;s pouring!</span><button class="say" data-say="Look outside, it&#x27;s pouring!" title="발음 듣기">&#128266;</button></div><div class="practice"><span>&#128172; We can weather the storm together.</span><button class="say" data-say="We can weather the storm together." title="발음 듣기">&#128266;</button></div><div class="practice"><span>&#128172; It really feels like fall today.</span><button class="say" data-say="It really feels like fall today." title="발음 듣기">&#128266;</button></div></div>
+
+  <button class="done-btn" id="doneBtn">&#9989; 오늘 학습 완료!</button>
+  <a class="archive-link" href="https://oysking55-ctrl.github.io/english-daily/list.html" target="_blank" rel="noopener">&#128218; 지난 레슨 전체 보기 &#8594;</a>
+  <div class="foot">생성: 2026-11-25 09:00 · 콘텐츠 자동 생성이라 표현이 어색할 수 있어요.<br>
+  발음 버튼은 브라우저 음성합성(TTS)을 사용합니다.</div>
+</div>
+
+<script>
+  document.querySelectorAll('.say').forEach(function(b) {
+    b.addEventListener('click', function() {
+      try {
+        var u = new SpeechSynthesisUtterance(b.getAttribute('data-say'));
+        u.lang = 'en-US'; u.rate = 0.95;
+        speechSynthesis.cancel(); speechSynthesis.speak(u);
+      } catch (e) {}
+    });
+  });
+  var key = 'lesson_done_2026-11-25';
+  var btn = document.getElementById('doneBtn');
+  function mark() { btn.textContent = '\uD83C\uDF89 오늘 학습 완료! 내일 또 만나요!'; btn.classList.add('done'); }
+  try { if (localStorage.getItem(key)) mark(); } catch (e) {}
+  btn.addEventListener('click', function() {
+    try { localStorage.setItem(key, '1'); } catch (e) {}
+    mark();
+  });
+</script>
+</body>
+</html>
